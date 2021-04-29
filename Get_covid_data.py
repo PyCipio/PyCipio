@@ -17,7 +17,8 @@ def get_data(country = "USA", level = 3, start = date(2020,1,1)):
         'administrative_area_level_1',
         'administrative_area_level_2',
         'administrative_area_level_3',
-        'latitude', 'longitude']]
+        'latitude',
+        'longitude']]
     
     return x
 
