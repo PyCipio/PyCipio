@@ -1,4 +1,3 @@
-
 #Imports
 from covid19dh import covid19
 from datetime import date
@@ -22,5 +21,5 @@ def get_data(country = "USA", level = 3, start = date(2020,1,1)):
     
     return x
 
-data = get_data()
+if __name__ == __main__:
 
