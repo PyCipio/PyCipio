@@ -18,7 +18,7 @@ import random
 import fns as f
 
 #Get data
-data = get_data(level = 2, start = date(2020,12,12))
+data = get_data(level = 2, start = date(2020,12,12)) #can get more or less data here.
 #group_by introduce lag (new infected from commulative)
 data["new_infected"] = data.groupby(["administrative_area_level_2"])["confirmed"].diff()
 data = data[data["new_infected"].notna()]
@@ -93,4 +93,49 @@ predictions = f.pp_test(
 # plot posterior predictive on new data. 
 f.plot_pp(predictions, train, test, d, x_new, y, idx_old)
 
+
+#%%
+# non-pooled model
+with pm.Model() as m2: 
+    
+    # set priors
+    α = pm.Normal('α', mu=5000, sd=1500, shape = N)
+    β = pm.Normal('β', mu=0, sd=100, shape = N)
+    ϵ = pm.HalfCauchy('ϵ', 50)
+    
+    # containers 
+    x_ = pm.Data('m2_x', train[x_new].values) #Year_ as data container (can be changed). 
+    idx_ = pm.Data('m2_idx', train[idx_new].values)
+    
+    y_pred = pm.Normal('y_pred',
+                       mu=α[idx_] + β[idx_] * x_,
+                       sd=ε, observed=train[y].values)
+    
+    # trace 
+    m2_trace = pm.sample(2000, return_inferencedata = True,
+                        target_accept = .99)
+    
+    ''' should be implemented at some point
+    m1_prior = pm.sample_prior_predictive(samples=50)
+    m1_ppc = pm.sample_posterior_predictive(m1_trace, 
+                                            var_names = ["α", "β", "y_pred"]) 
+    '''
+
+
+# %%
+az.plot_trace(m2_trace)
+
+# %%
+
+
+# posterior predictive on new data. 
+predictions = f.pp_test(
+    m2, 
+    m2_trace, 
+    {'m2_x': test[x_new].values, 'm2_idx': test[idx_new].values},
+    params = ["α", "β", "y_pred"]
+    )
+
+# plot posterior predictive on new data. 
+f.plot_pp(predictions, train, test, d, x_new, y, idx_old)
 
