@@ -7,4 +7,3 @@ from Get_covid_data import get_data
 
 data = get_data(level = 2, start = date(2020,12,12))
 
-data.to_csv("sample_data.csv",index = False, header = True)
