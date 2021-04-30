@@ -1,0 +1,20 @@
+---
+title: "Fpp3_covid"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(tsibble)
+library(feasts)
+library(fable)
+```
+
+
+```{r}
+#load USA sample data covid (statewise)
+data <- read.csv(file = "sample_data.csv", header = T)
+
+
+```
+

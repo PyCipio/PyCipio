@@ -23,5 +23,6 @@ def get_data(country = "USA", level = 3, start = date(2020,1,1)):
     
     return x
 
-if __name__ == __main__:
+
+
 
