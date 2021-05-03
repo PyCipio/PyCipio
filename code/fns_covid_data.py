@@ -1,6 +1,7 @@
 
 #%%
 #victor
+
 # import packages
 from covid19dh import covid19
 from datetime import date
@@ -19,7 +20,7 @@ import fns as f
 
 #Get data
 data = get_data(level = 2, start = date(2020,12,12))
-#group_by introduce lag (new infected from commulative)
+#group_by introduce lag (new infected from commulative "confirmed")
 data["new_infected"] = data.groupby(["administrative_area_level_2"])["confirmed"].diff()
 data = data[data["new_infected"].notna()]
 #Create subset from 5 states
