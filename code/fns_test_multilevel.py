@@ -87,3 +87,12 @@ predictions = f.pp_test(
 # plot posterior predictive on new data. 
 f.plot_pp(predictions, train, test, d, x_new, y, idx_old)
 
+# save the trace & related stuff. 
+# make function?
+model_fpath = "../models/m_multi.pickle"
+with open(model_fpath, 'wb') as buff:
+    pickle.dump({'model': m, 
+                 'trace': m_trace, 
+                 'pp': predictions,
+                 'X_shared': x_,
+                 'idx_shared': idx_}, buff)
