@@ -6,7 +6,7 @@ from datetime import date
 #Level sets granularity: 1 = Countrywise, 2 == statewise, 3 == state and countywise
 def get_data(country = "USA", level = 3, start = date(2020,1,1)):
     #Get data function
-    x, src = covid19(country, level = level, start = start)
+    x, src = covid19(country, level = level, start = start, verbose = False)
     ##clean up
     #Select columns:
     x = x[[

@@ -128,7 +128,6 @@ az.plot_trace(m2_trace)
 
 # %%
 
-
 # posterior predictive on new data. 
 predictions = f.pp_test(
     m2, 

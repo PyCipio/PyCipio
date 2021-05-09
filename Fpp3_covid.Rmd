@@ -4,17 +4,30 @@ output: html_document
 ---
 
 ```{r}
-library(tidyverse)
-library(tsibble)
-library(feasts)
-library(fable)
+pacman::p_load(tidyverse, fpp3, tsibble, feasts, fable)
 ```
 
 
 ```{r}
 #load USA sample data covid (statewise)
 data <- read.csv(file = "sample_data.csv", header = T)
+```
 
+```{r}
+#Create tsibble
+tsi <- data %>%
+  mutate(date = as_date(date)) %>%
+  as_tsibble(key = c(confirmed, administrative_area_level_2), index = date) %>%
+  select(c(date, confirmed, administrative_area_level_2)) %>%
+  #Subset states
+  filter(administrative_area_level_2 == "Oregon" | 
+           administrative_area_level_2 == "Mississippi" | 
+           administrative_area_level_2 == "Nevada")
+```
 
+```{r}
+tsi %>%
+  ggplot(aes(x = date, y = confirmed, color = administrative_area_level_2) ) +
+  geom_line()
 ```
 
