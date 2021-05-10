@@ -117,6 +117,7 @@ ax.legend(ncol=2, fontsize=9, frameon=True);
 
 # complete pool 
 coords["County"] = mn_counties
+coords
 with pm.Model(coords=coords) as unpooled_model:
     floor_idx = pm.Data("floor_idx", floor, dims="obs_id")
     county_idx = pm.Data("county_idx", county, dims="obs_id")
