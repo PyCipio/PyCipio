@@ -147,9 +147,10 @@ pm.model_to_graphviz(m_partial)
 year_dim = partial_idata.constant_data.country_idx_
 # assign to posterior? : no.
 partial_idata.posterior.assign_coords(year_idx_ = year_dim)
-partial_idata
 
 ## predictions 
+country_test_idx = test.Country.values
+country_test_idx
 prediction_coords2 = {"obs_id": country_test_idx} # don't get this at all. 
 partial_idata.posterior
 with m_partial:
@@ -161,12 +162,15 @@ with m_partial:
     az.from_pymc3_predictions(
         partial_pred, idata_orig=partial_idata, inplace=True, coords=prediction_coords2
     )
+    
+partial_idata
 
 ## new constants!! 
 country_idx = partial_idata.predictions_constant_data.obs_id
 year_idx = partial_idata.predictions_constant_data.year_idx_
 partial_preds = partial_idata.predictions.assign_coords(country_idx_ = country_idx, 
                                                         year_idx_ = year_idx)
+
 
 # y_mean
 y_mean = partial_preds["y"].mean(dim=("chain", "draw")).sortby("country_idx_")
@@ -181,11 +185,13 @@ sns.lineplot(x = y_mean.year_idx_,
 y_mean = partial_preds["y"].mean(dim=("chain", "draw")).sortby("country_idx_")
 
 # testing: 
+partial_idata
 sample_country_mask = partial_idata.predictions_constant_data.obs_id.isin(["Australia"])
 partial_idata.observed_data.where(sample_country_mask, drop=True).sortby("Year").plot.scatter(
         x="Year", y="y", ax=ax, alpha=0.4
     )
 
+partial_idata.predictions_constant_data.obs_id.isin(["Australia"])
 fig, axes = plt.subplots(2, 2, figsize=(12, 12), sharey=True, sharex=True)
 for ax, c in zip(axes.ravel(), country_unique): 
     
@@ -193,9 +199,9 @@ for ax, c in zip(axes.ravel(), country_unique):
     sample_country_mask = partial_idata.predictions_constant_data.obs_id.isin([c])
     
     # plot obs:
-    #partial_idata.observed_data.where(sample_country_mask, drop=True).sortby("Year").plot.scatter(
-    #    x="Year", y="y", ax=ax, alpha=0.4
-    #)
+    partial_idata.observed_data.where(sample_country_mask, drop=True).sortby("Year").plot.scatter(
+        x="Year", y="y", ax=ax, alpha=0.4
+    )
     
     # plot y main
     y_partial = y_mean.sel(obs_id = c)
