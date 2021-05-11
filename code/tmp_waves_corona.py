@@ -50,8 +50,10 @@ y_test = test.y_scaled.values
 
 ###### Run on own data ######
 n = 2
-p = 7
-c = (2 * np.pi * np.arange(1, n + 1) / p)[:, None]
+p_week = 7
+p_month = 30
+c_week = (2 * np.pi * np.arange(1, n + 1) / p_week)[:, None]
+c_month = (2 * np.pi * np.arange(1, n + 1) / p_month)[:, None]
 seasonality_prior_scale=2
 
 with pm.Model() as m: 
@@ -60,19 +62,24 @@ with pm.Model() as m:
     t_shared = pm.Data('t_shared', time_train)
     
     # creating fourier
-    x_tmp = c * t_shared
-    x_waves = tt.concatenate((tt.cos(x_tmp), tt.sin(x_tmp)), axis=0)
+    x_week = c_week * t_shared
+    x_month = c_month * t_shared
+    
+    x_week_waves = tt.concatenate((tt.cos(x_week), tt.sin(x_week)), axis=0)
+    x_month_waves = tt.concatenate((tt.cos(x_month), tt.sin(x_month)), axis = 0)
     
     # beta
-    beta_waves = pm.Normal('beta_waves', mu=0, sd = seasonality_prior_scale, shape = 2*n) #2*n
+    beta_week_waves = pm.Normal('beta_week_waves', mu = 0, sd = seasonality_prior_scale, shape = 2*n) 
+    beta_month_waves = pm.Normal('beta_month_waves', mu = 0, sd = seasonality_prior_scale, shape = 2*n)
     beta_line = pm.Normal('beta_line', mu = 0, sd = 0.1)
     
     # mu temp
-    mu_waves = pm.math.dot(x_waves.T, beta_waves) 
+    mu_week_waves = pm.math.dot(x_week_waves.T, beta_week_waves) 
+    mu_month_waves = pm.math.dot(x_month_waves.T, beta_month_waves)
     mu_line = beta_line * t_shared
     
     # mu = tt.sum(mu_tmp)
-    mu = mu_waves + mu_line
+    mu = mu_week_waves + mu_month_waves + mu_line
     
     # sigma 
     sigma = pm.HalfCauchy('sigma', 0.5)
