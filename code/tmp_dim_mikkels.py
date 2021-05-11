@@ -12,6 +12,7 @@ import arviz as az
 import matplotlib.pyplot as plt
 import os 
 import theano
+import theano.tensor as tt 
 import random
 # import functions from fns file 
 import fns as f
@@ -22,15 +23,6 @@ df = get_data(level = 2, start = date(2020,1,1)) #can get more or less data here
 df["new_infected"] = df.groupby(["administrative_area_level_2"])["confirmed"].diff()
 df = df[df["administrative_area_level_2"].isin(["Colorado"])]
 df = df[df["new_infected"].notna()]
-
-def det_dot(a, b):
-    """
-    The theano dot product and NUTS sampler don't work with large matrices?
-    
-    :param a: (np matrix)
-    :param b: (theano vector)
-    """
-    return (a * b[None, :]).sum(axis=-1)
 
 df.reset_index(inplace = True)
 df['date'] = pd.to_datetime(df['date'])
@@ -51,151 +43,261 @@ def scalar(df, df_ref):
 train = scalar(train, train)
 test = scalar(test, train)
 
+## pyMC3
+n = 1
+p = 7
+c = (2 * np.pi * np.arange(1, n + 1) / p)[:, None]
 t = train.t.values
 y_scaled = train.y_scaled.values
-n = 3
-p = 10
+seasonality_prior_scale=2
 
-## Fourier
-np.random.seed(6)
-def fourier_series(t, p=365.25, n=10):
-    # 2 pi n / p
-    x = 2 * np.pi * np.arange(1, n + 1) / p
-    # 2 pi n / p * t
-    x = x * t[:, None]
-    x = np.concatenate((np.cos(x), np.sin(x)), axis=1)
-    return x
-
-## Seasonality
-def seasonality_model(m, df, period='yearly', seasonality_prior_scale=10):
+with pm.Model() as m2: 
     
-    if period == 'yearly':
-        n = 10
-        # rescale the period, as t is also scaled
-        p = 365.25 / (df['date'].max() - df['date'].min()).days
-        
-    if period == "monthly":
-        n = 10
-        # rescale the period, as t is also scaled
-        p = 30.5 / (df['date'].max() - df['date'].min()).days
-    else:  # weekly
-        n = 3
-        # rescale the period, as t is also scaled
-        p = 7 / (df['date'].max() - df['date'].min()).days
-    x = fourier_series(df['t'], p, n)
-    with m:
-        beta = pm.Normal(f'beta_{period}', mu=0, sd=seasonality_prior_scale, shape=2 * n)
-    return x, beta
-
-
-t = train.t.values
-y_scaled = train.y_scaled.values
-n = 3
-p = 10
-
-
-with pm.Model() as m:
-    # changepoints_prior_scale is None, so the exponential distribution
-    # will be used as prior on \tau.
-    #y, A, s = trend_model(m, df['t'], changepoints_prior_scale=None, n_changepoints = 40)
-    #x_yearly, beta_yearly = seasonality_model(m, df, 'yearly')
-    #t_shared = pm.Data('t_shared', t)
+    # shared 
+    t_shared = pm.Data('t_shared', t)
     
-    '''
-    # 2 pi n / p
-    x = 2 * np.pi * np.arange(1, n + 1) / p
-    # 2 pi n / p * t
-    x = x * t[:, None]
-    x = np.concatenate((np.cos(x), np.sin(x)), axis=1)
-    '''
-    x = fourier_series()
+    # creating fourier
+    x_tmp = c * t_shared
+    x = tt.concatenate((tt.cos(x_tmp), tt.sin(x_tmp)), axis=0)
     
+    # beta
+    beta = pm.Normal(f'beta', mu=0, sd = seasonality_prior_scale, shape = (2*n, 1)) #2*n
     
+    # mu
+    #print(x.shape.eval())
+    #print(beta.shape)
+    mu = pm.math.dot(x.T, beta) 
+    
+    # sigma 
     sigma = pm.HalfCauchy('sigma', 0.5, testval=1)
+    
+    # likelihood 
     y_pred = pm.Normal('y_pred', 
-                       mu = x,
+                       mu = mu,
                        sd = sigma,
                        observed = y_scaled)
-    #x_monthly, beta_monthly = seasonality_model(m, df, "monthly")
-    #x_weekly, beta_weekly = seasonality_model(m, df, 'weekly')
-    '''
-    x_monthly, beta_monthly = seasonality_model(m, df, "monthly")
-    x_weekly, beta_weekly = seasonality_model(m, df, 'weekly')
+
+with m2: 
+    m2_idata = pm.sample(return_inferencedata = True,
+                         draws = 400,
+                         chains = 1)
+
+az.plot_trace(m2_idata)
+m2_idata
+
+# plot y. 
+with m2: 
+    m2_pred = pm.sample_posterior_predictive(m2_idata,
+                                             samples = 400,
+                                             var_names = ["beta", "y_pred"])
+
+# check shape 
+m2_pred["y_pred"].shape
+
+# mean from some axis?
+test = m2_pred["y_pred"].mean(axis = 0) # mean over 400 draws
+first = test[0]
+second = test[1]
+
+# plot them 
+plt.plot(t, first)
+plt.plot(t, second)
+plt.plot(t, y_scaled)
+plt.show();
+
+# plot individual draw 
+iter = 3
+first = [m2_pred["y_pred"][n, :, 0] for n in range(iter)]
+second = [m2_pred["y_pred"][n, 0, :] for n in range(iter)]
+
+for i in range(iter): 
+    plt.plot(t, first[i], color = "r", alpha = 0.1)
+    plt.plot(t, second[i], color = "b", alpha = 0.1)
+plt.plot(t, y_scaled)
+plt.show();
+
+##### dummy data ##### 
+# Get x values of the sine wave
+time = np.arange(0, 20, 0.1);
+
+# Amplitude of the sine wave is sine of a variable like time
+sines = np.sin(time) + np.random.normal(0, 0.2, 200)
+coses = np.cos(time) + np.random.normal(0, 0.2, 200)
+
+# plot it
+plt.plot(t, y_true)
+plt.plot(t, sines)
+plt.plot(t, coses)
+
+# setup for model
+n = 2
+p = 7
+c = (2 * np.pi * np.arange(1, n + 1) / p)[:, None]
+t = time
+y_true = sines + coses
+seasonality_prior_scale=2
+
+with pm.Model() as m3: 
     
-    y += det_dot(x_weekly, beta_weekly) + det_dot(x_monthly, beta_monthly) # + det_dot(x_yearly, beta_yearly)
+    # shared 
+    t_shared = pm.Data('t_shared', t)
     
+    # creating fourier
+    x_tmp = c * t_shared
+    x = tt.concatenate((tt.cos(x_tmp), tt.sin(x_tmp)), axis=0)
+    
+    # beta
+    beta = pm.Normal(f'beta', mu=0, sd = seasonality_prior_scale, shape = (2*n, 1)) #2*n
+    
+    # mu
+    #print(x.shape.eval())
+    #print(beta.shape)
+    mu_tmp = pm.math.dot(x.T, beta) 
+    mu = tt.sum(mu_tmp)
+    
+    # sigma 
     sigma = pm.HalfCauchy('sigma', 0.5, testval=1)
-    obs = pm.Normal('obs', 
-                 mu=y, 
-                 sd=sigma,
-                 observed=df['y_scaled'])
-    '''
-
-with m: 
-    m_idata = pm.sample(return_inferencedata=True)
     
-m_idata
-
-
-##### Testing stuff ##### 
-arr1 = np.array([[5, 6, 7, 8]])
-arr2 = np.array([[1, 2, 3, 4]])
-
-import theano
-import theano.tensor as tt  
-import numpy as np
-a = tt.matrix('a')
-b = theano.shared(np.array([[3, 4, 5, 6]]))
-c = a + b
-f = theano.function(inputs = [a], outputs = [c])
-output = f(np.array([[3, 4, 5, 6]]))
-output
-
-##### testing Mikkel ##### 
-
-def fourier_series(t, p=365.25, n=10):
-    # 2 pi n / p
-    x = 2 * np.pi * np.arange(1, n + 1) / p
-    # 2 pi n / p * t
-    x = x * t[:, None]
-    x = np.concatenate((np.cos(x), np.sin(x)), axis=1)
-    return x
-
-## different versions of t. 
-t = train.t.values
-t_format = t[:, None]
-t_shared = theano.shared(t)
-t_format_shared = theano.shared(t_format)
-
-## testing it out. 
-p = theano.tensor.scalar('p')
-n = theano.tensor.scalar('n')
-c = pm.math.dot((2 * np.pi * tt.arange(1, n + 1) / p), t_format_shared)
-f = theano.function(inputs = [p, n], outputs = [c])
-out = f(365, 10)
-
-#### in pymc3 #### 
-a_train = [1, 2, 3, 4, 5, 6]
-b_train = [4, 6, 8, 9, 11, 15]
-n = 3
-p = 10
-with pm.Model() as m1: 
-    a_shared = pm.Data('a_shared', a_train)
-    
-    c = pm.Deterministic(2 * np.pi + )
-    c = 2 * np.pi * tt.arange(1, n + 1)/p
-    
-    x = pm.math.dot(c, a_shared)
-    
-    sigma = pm.HalfCauchy('sigma', 0.5, testval=1)
-    
+    # likelihood 
     y_pred = pm.Normal('y_pred', 
-                       mu = x,
+                       mu = mu,
                        sd = sigma,
-                       observed = b_train)
+                       observed = y_true)
 
-## 
-x = 2 * np.pi * np.arange(1, n + 1) / p
-# 2 pi n / p * t
-x = x * t[:, None]
-x = np.concatenate((np.cos(x), np.sin(x)), axis=1)
+# idata
+with m3: 
+    m3_idata = pm.sample(return_inferencedata = True,
+                         draws = 500)
+
+az.plot_trace(m3_idata)
+# predictive
+with m3: 
+    m3_pred = pm.sample_posterior_predictive(m3_idata,
+                                             samples = 400,
+                                             var_names = ["beta", "y_pred"])
+
+# plot 
+# mean from some axis?
+test = m3_pred["y_pred"].mean(axis = 0) # mean over 400 draws
+first = test[0]
+second = test[1]
+
+# plot them 
+plt.plot(t, first)
+plt.plot(t, second)
+plt.plot(t, y_true)
+plt.show();
+
+# individual draws 
+iter = 1
+first = [m3_pred["y_pred"][n, :, 0] for n in range(iter)]
+second = [m3_pred["y_pred"][n, 0, :] for n in range(iter)]
+
+for i in range(iter): 
+    plt.plot(t, first[i], color = "r", alpha = 0.1)
+    plt.plot(t, second[i], color = "b", alpha = 0.1)
+plt.plot(t, y_true)
+plt.show();
+
+
+##### dummy data 2 ######
+# Get x values of the sine wave
+time = np.arange(0, 30, 0.1);
+
+# Amplitude of the sine wave is sine of a variable like time
+sines = np.sin(time)*2 + np.random.normal(0, 0.2, 300)
+coses = np.cos(time)*2 + np.random.normal(0, 0.2, 300)
+
+# setup for model
+n = 1
+p = 3
+c = (2 * np.pi * np.arange(1, n + 1) / p)[:, None]
+t = time
+y_true = sines + coses
+seasonality_prior_scale=2
+
+## train/test
+time_train = time[:200]
+y_train = y_true[:200]
+time_test = time[200:]
+y_test = y_true[200:]
+
+with pm.Model() as m4: 
+    
+    # shared 
+    t_shared = pm.Data('t_shared', time_train)
+    
+    # testing. 
+    p = pm.Normal("p", mu = 7, sd = 1)
+    c = (2*np.pi*np.arange(1, n + 1) / p)[:, None]
+    
+    # creating fourier
+    x_tmp = c * t_shared
+    
+    # two x vals 
+    x_sine = tt.sin(x_tmp)
+    x_cos = tt.cos(x_tmp)
+    
+    # beta
+    
+    beta_sine = pm.Normal("beta_sine", mu=0, sd = seasonality_prior_scale) #2*n
+    beta_cos = pm.Normal("beta_cos", mu = 0, sd = seasonality_prior_scale)
+    
+    # mu
+    #print(x.shape.eval())
+    #print(beta.shape)
+    mu = pm.Deterministic("mu", x_sine * beta_sine + x_cos * beta_cos)
+    
+    # sigma 
+    sigma = pm.HalfCauchy('sigma', 0.5, testval=1)
+    
+    # likelihood 
+    y_pred = pm.Normal('y_pred', 
+                       mu = mu,
+                       sd = sigma,
+                       observed = y_train)
+
+# inferencedata.     
+with m4: 
+    m4_idata = pm.sample(return_inferencedata = True,
+                         draws = 500)
+    
+# posterior predictive. 
+az.plot_trace(m4_idata)
+
+# posterior pred.
+with m4: 
+    m4_pred = pm.sample_posterior_predictive(
+        m4_idata, 
+        samples = 500, 
+        var_names = ["y_pred"]
+    )
+    
+
+# plot 
+# mean from some axis?
+y_mean = m4_pred["y_pred"].mean(axis = 0) # mean over 400 draws
+y_more_mean = y_mean[0]
+
+# plot them 
+plt.plot(time_train, y_more_mean)
+plt.plot(time_train, y_train)
+plt.show();
+
+## predictions on new data
+with m4:
+    pm.set_data({"t_shared": time_test})
+    m4_new_pred = pm.fast_sample_posterior_predictive(
+        m4_idata.posterior
+    )
+
+# 
+# mean from some axis?
+y_mean = m4_new_pred["y_pred"].mean(axis = 0) # mean over 400 draws
+y_more_mean = y_mean[0]
+
+# plot them 
+plt.plot(time_test, y_more_mean)
+plt.plot(time_test, y_test)
+plt.show();
+
