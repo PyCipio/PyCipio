@@ -43,9 +43,9 @@ train = scalar(train, train)
 test = scalar(test, train)
 
 ## take out variables ##
-time_train = train.t.values
+time_train = train.date_idx.values
 y_train = train.y_scaled.values
-time_test = test.t.values
+time_test = test.date_idx.values
 y_test = test.y_scaled.values
 
 ###### Run on own data ######
@@ -65,7 +65,7 @@ with pm.Model() as m:
     
     # beta
     beta_waves = pm.Normal('beta_waves', mu=0, sd = seasonality_prior_scale, shape = 2*n) #2*n
-    beta_line = pm.Normal('beta_line', mu = 0, sd = 1)
+    beta_line = pm.Normal('beta_line', mu = 0, sd = 0.1)
     
     # mu temp
     mu_waves = pm.math.dot(x_waves.T, beta_waves) 
@@ -75,7 +75,7 @@ with pm.Model() as m:
     mu = mu_waves + mu_line
     
     # sigma 
-    sigma = pm.HalfCauchy('sigma', 0.5, testval=1)
+    sigma = pm.HalfCauchy('sigma', 0.5)
     
     # likelihood 
     y_pred = pm.Normal('y_pred', 
@@ -88,3 +88,19 @@ with m:
     m_idata = pm.sample(return_inferencedata = True,
                          draws = 500)
     
+# ooookay..
+az.plot_trace(m_idata)
+
+# predictive
+with m: 
+    m_pred = pm.sample_posterior_predictive(m_idata,
+                                            samples = 500,
+                                            var_names = ["y_pred"])
+
+m_pred["y_pred"].shape
+y_pred = m_pred["y_pred"].mean(axis = 0) # mean over 400 draws
+
+# plot them 
+plt.plot(time_train, y_pred)
+plt.plot(time_train, y_train)
+plt.show();
