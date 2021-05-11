@@ -104,3 +104,22 @@ y_pred = m_pred["y_pred"].mean(axis = 0) # mean over 400 draws
 plt.plot(time_train, y_pred)
 plt.plot(time_train, y_train)
 plt.show();
+
+# predict 
+with m:
+    pm.set_data({"t_shared": time_test})
+    m_new_pred = pm.fast_sample_posterior_predictive(
+        m_idata.posterior
+    )
+
+# mean from some axis?
+y_mean = m_new_pred["y_pred"].mean(axis = 0) # mean over 400 draws
+
+# plot them 
+plt.plot(time_test, y_mean)
+plt.plot(time_train, y_train)
+plt.plot(time_train, y_pred)
+az.plot_hdi(time_train, m_pred["y_pred"], hdi_prob = .89)
+az.plot_hdi(time_test, m_new_pred["y_pred"], hdi_prob = .89)
+plt.plot(time_test, y_test)
+plt.show();
