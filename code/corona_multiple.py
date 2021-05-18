@@ -23,13 +23,12 @@ df = get_data(level = 2, start = date(2020,1,1)) #can get more or less data here
 np.unique(df.administrative_area_level_2.values)
 
 df["new_infected"] = df.groupby(["administrative_area_level_2"])["confirmed"].diff()
-df = df[df["administrative_area_level_2"].isin(["Colorado", "Mississippi", "Nevada", "New Jersey", "New York"])]
+df = df[df["administrative_area_level_2"].isin(["Colorado", "Mississippi"])]
 df = df[df["new_infected"].notna()]
 df.reset_index(inplace = True)
 
 
 ## train/test
-import fns as f
 df["date_idx"] = df.groupby(["administrative_area_level_2"]).cumcount()+0
 train, test = f.train_test(df, "date_idx", train_size = .75)
 
@@ -53,7 +52,6 @@ train_idx = pd.Categorical(train["administrative_area_level_2"]).codes
 test_idx = pd.Categorical(test["administrative_area_level_2"]).codes
 N = len(np.unique(train_idx))
 
-
 ###### Run on own data ######
 n = 2
 p_week = 7
@@ -61,6 +59,10 @@ p_month = 30
 c_week = (2 * np.pi * np.arange(1, n + 1) / p_week)[:, None]
 c_month = (2 * np.pi * np.arange(1, n + 1) / p_month)[:, None]
 seasonality_prior_scale=2
+## unique for time and idx
+
+print(pm.__version__)
+
 
 with pm.Model() as m: 
     
@@ -76,17 +78,19 @@ with pm.Model() as m:
     x_month_waves = tt.concatenate((tt.cos(x_month), tt.sin(x_month)), axis = 0)
     
     # beta
-    beta_week_waves = pm.Normal('beta_week_waves', mu = 0, sd = seasonality_prior_scale, shape = (2*n, N)) # really don't know about this shape. 
+    beta_week_waves = pm.Normal('beta_week_waves', mu = 0, sd = seasonality_prior_scale, shape = (2*n, N)) 
     beta_month_waves = pm.Normal('beta_month_waves', mu = 0, sd = seasonality_prior_scale, shape = (2*n, N))
     beta_line = pm.Normal('beta_line', mu = 0, sd = 0.1, shape = N)
     
     # mu temp
-    mu_week_waves = pm.math.dot(x_week_waves.T, beta_week_waves[idx_shared]) 
-    mu_month_waves = pm.math.dot(x_month_waves.T, beta_month_waves[idx_shared])
+    mu_week_waves = pm.math.dot(x_week_waves.T, beta_week_waves[:, idx_shared]) #[:, idx_shared]
+    mu_month_waves = pm.math.dot(x_month_waves.T, beta_month_waves[:, idx_shared]) #[:, idx_shared]
     mu_line = beta_line[idx_shared] * t_shared
     
+    #pm.math.dot(mu_week_waves[idx_shared], mu_line[idx_shared])
     # mu = tt.sum(mu_tmp)
-    mu = mu_week_waves + mu_month_waves[idx_shared] + mu_line[idx_shared]
+    
+    mu = mu_week_waves + mu_month_waves + mu_line
     
     # sigma 
     sigma = pm.HalfCauchy('sigma', 0.5)
@@ -100,7 +104,9 @@ with pm.Model() as m:
 # idata
 with m: 
     m_idata = pm.sample(return_inferencedata = True,
-                         draws = 500)
+                        chains = 1,
+                        init = "adapt_diag",
+                        draws = 500)
     
 # ooookay..
 az.plot_trace(m_idata)

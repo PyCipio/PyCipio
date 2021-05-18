@@ -41,7 +41,9 @@ train, test = f.train_test(d, x_new) # check doc-string.
 
 # we need N here as well for shape.
 N = len(np.unique(train[idx_new]))
-
+train[x_new].values
+train[idx_new].values
+N
 # fit model 
 with pm.Model() as m: 
     
