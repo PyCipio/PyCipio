@@ -1,0 +1,105 @@
+---
+title: "Alcohol_Fpp3_example"
+output: word_document
+---
+
+```{r}
+pacman::p_load(tidyverse, fpp3, tsibble, feasts, fable)
+```
+
+```{r}
+data <- read.csv(file = "data/archive/Alcohol_Sales.csv", header = T)
+```
+
+```{r}
+tsi <- data %>%
+  mutate(date = as_date(DATE), sales = S4248SM144NCEN, yearmonth = yearmonth(date) ) %>%
+  as_tsibble(index = yearmonth) %>%
+  select(c(yearmonth, sales))
+
+
+```
+
+```{r}
+tsi %>%
+  ggplot(aes(x = yearmonth, y = sales)) +
+  geom_line()
+```
+```{r}
+smp_size <- floor(0.75 * nrow(tsi))
+train <- tsi[1:smp_size, ]
+test <- tsi[(smp_size+1):length(tsi$sales), ]
+```
+
+```{r}
+hh_fit <- train %>%
+  tsibble::fill_gaps() %>%
+  model(
+    Mean = MEAN(sales),
+    Naive = NAIVE(sales),
+    sNAIVE = SNAIVE(sales),
+    Drift = RW(sales ~ drift()),
+    Arima = ARIMA(sales)
+  )
+```
+
+```{r}
+hh_pred <- hh_fit %>% forecast(h = 82)
+hh_pred
+```
+
+```{r}
+hh_pred %>% 
+  autoplot(tsi, level = NULL) +
+  geom_vline(xintercept = as_date("2012-03-01"), lty = 2) 
+```
+
+```{r}
+
+hh_pred_test = hh_pred %>%
+  mutate(mu = hh_pred$sales[2])
+
+write.csv(hh_pred,"data/fpp3_alcohol_predictions.csv")
+```
+
+
+```{r}
+data2 <- read.csv(file = "data/archive/BeerWineLiquor.csv", header = T)
+
+tsi2 <- data2 %>%
+  mutate( yearmonth = yearmonth(date) ) %>%
+  as_tsibble(index = yearmonth) %>%
+  select(c(yearmonth, beer))
+
+tsi2 %>%
+  ggplot(aes(x = yearmonth, y = beer)) +
+  geom_line()
+
+smp_size2 <- floor(0.75 * nrow(tsi2))
+train2 <- tsi2[1:smp_size2, ]
+test2 <- tsi2[(smp_size2+1):length(tsi2$beer), ]
+
+hh_fit2 <- train2 %>%
+  model(
+    Mean = MEAN(beer),
+    Naive = NAIVE(beer),
+    sNAIVE = SNAIVE(beer),
+    Drift = RW(beer ~ drift()),
+    Arima = ARIMA(beer)
+  )
+
+hh_pred2 <- hh_fit2 %>% forecast(h = 82)
+hh_pred2
+
+
+```
+
+```{r}
+hh_pred2 %>% 
+  autoplot(tsi2) +
+  geom_vline(xintercept = as_date("2012-03-01"), lty = 2) 
+```
+```{r}
+write.csv(hh_pred2,"data/fpp3_liquor_predictions.csv")
+```
+
