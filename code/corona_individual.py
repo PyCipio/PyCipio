@@ -20,16 +20,24 @@ import fns as f
 df = get_data(level = 2, start = date(2020,1,1)) #can get more or less data here.
 
 df["new_infected"] = df.groupby(["administrative_area_level_2"])["confirmed"].diff()
-df = df[df["administrative_area_level_2"].isin(["Colorado"])]
+#df = df[df["administrative_area_level_2"].isin(["Colorado"])]
 df = df[df["new_infected"].notna()]
 
 df.reset_index(inplace = True)
 df['date'] = pd.to_datetime(df['date'])
 
+
 ## train/test
 import fns as f
-df["date_idx"] = list(range(len(df.date)))
+#df["date_idx"] = list(range(len(df.date)))
+df['date_idx'] = df.groupby(["administrative_area_level_2"]).cumcount()+1
 train, test = f.train_test(df, "date_idx", train_size = .75)
+
+##Create sample csv
+# df.to_csv("usa_corona.csv", header = True)
+# train.to_csv("train_usa_corona.csv", header = True)
+# test.to_csv("test_usa_corona.csv", header = True)
+
 
 # Scale the data
 def scalar(df, df_ref): 
