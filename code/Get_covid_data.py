@@ -47,6 +47,8 @@ def get_data(country = "USA", level = 3, start = date(2020,1,1)):
     #Add new infected columns and remove (very few NAs - one in the start of each state)
     x["new_infected"] = x.groupby(["administrative_area_level_2"])["confirmed"].diff()
     x = x[x["new_infected"].notna()]
+    x["new_infected_pr_capita"] = (x["new_infected"]/x["population"])*100000
+
 
     #Interpolate accumulated infected numbers - on a few days,
     #numbers are not reported and then aggregated on the following day. This is fixed by averaging accross such cases.  
@@ -62,4 +64,3 @@ plt.plot(subset.date,subset.new_infected)
 plt.show()
 
 subset2 = data[data['administrative_area_level_2'].isin(["Florida"])]
-
