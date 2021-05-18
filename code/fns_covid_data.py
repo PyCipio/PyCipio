@@ -1,6 +1,7 @@
 
 #%%
 #victor
+
 # import packages
 from covid19dh import covid19
 from datetime import date
@@ -126,7 +127,6 @@ with pm.Model() as m2:
 az.plot_trace(m2_trace)
 
 # %%
-
 
 # posterior predictive on new data. 
 predictions = f.pp_test(

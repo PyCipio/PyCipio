@@ -4,17 +4,79 @@ output: html_document
 ---
 
 ```{r}
-library(tidyverse)
-library(tsibble)
-library(feasts)
-library(fable)
+pacman::p_load(tidyverse, fpp3, tsibble, feasts, fable)
 ```
 
 
 ```{r}
 #load USA sample data covid (statewise)
-data <- read.csv(file = "sample_data.csv", header = T)
+getwd()
 
+data <- read.csv(file = "data/usa_corona.csv", header = T)
+```
+```{r}
+
+```
+
+```{r}
+#Create tsibble
+tsi <- data %>%
+  select(-c(index, X)) %>%
+  mutate(date = as_date(date)) %>%
+  as_tsibble(key = administrative_area_level_2, index = date) %>%
+  #Subset states
+  filter(administrative_area_level_2 %in% c("New York", "Mississippi", "New Jersey", "Nevada", "Colorado" )) %>%
+  select(c(date, new_infected, administrative_area_level_2))
+
+```
+
+
+```{r}
+tsi %>%
+  ggplot(aes(x = date, y = new_infected, color = administrative_area_level_2) ) +
+  geom_line()
+```
+
+
+```{r}
+
+sorted = floor(nrow(tsi)*.75)
+train <- tsi %>%
+  slice_head(n = sorted)
+test <- tsi %>%
+  slice_tail(n = length(tsi$date)-sorted)
+
+```
+
+```{r}
+hh_fit <- train %>%
+  tsibble::fill_gaps() %>%
+  model(
+    Mean = MEAN(new_infected),
+    Naive = NAIVE(new_infected),
+    sNAIVE = SNAIVE(new_infected),
+    Drift = RW(new_infected ~ drift())
+  )
+
+```
+
+```{r}
+# predict
+hh_pred <- hh_fit %>% forecast(h = 108)
+hh_pred
+```
+```{r}
+pacman::p_load(GGally, ggthemes, ggfortify)
+```
+
+```{r}
+## put it together (do this properly without autoplot).
+hh_pred %>% 
+  autoplot(tsi, level = NULL) +
+  geom_vline(xintercept = max(train$date), lty = 2) 
+  
+```
+```{r}
 
 ```
 

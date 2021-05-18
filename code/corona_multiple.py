@@ -1,3 +1,4 @@
+# colorado, mississippi, nevada, new jersey, new york
 ##### import stuff ###### 
 import numpy as np 
 import pandas as pd 
@@ -19,25 +20,18 @@ import fns as f
 ###### Emil Roenn = Get data ###### 
 df = get_data(level = 2, start = date(2020,1,1)) #can get more or less data here.
 
-df["new_infected"] = df.groupby(["administrative_area_level_2"])["confirmed"].diff()
-#df = df[df["administrative_area_level_2"].isin(["Colorado"])]
-df = df[df["new_infected"].notna()]
+np.unique(df.administrative_area_level_2.values)
 
+df["new_infected"] = df.groupby(["administrative_area_level_2"])["confirmed"].diff()
+df = df[df["administrative_area_level_2"].isin(["Colorado", "Mississippi", "Nevada", "New Jersey", "New York"])]
+df = df[df["new_infected"].notna()]
 df.reset_index(inplace = True)
-df['date'] = pd.to_datetime(df['date'])
 
 
 ## train/test
 import fns as f
-#df["date_idx"] = list(range(len(df.date)))
-df['date_idx'] = df.groupby(["administrative_area_level_2"]).cumcount()+1
+df["date_idx"] = df.groupby(["administrative_area_level_2"]).cumcount()+0
 train, test = f.train_test(df, "date_idx", train_size = .75)
-
-##Create sample csv
-# df.to_csv("usa_corona.csv", header = True)
-# train.to_csv("train_usa_corona.csv", header = True)
-# test.to_csv("test_usa_corona.csv", header = True)
-
 
 # Scale the data
 def scalar(df, df_ref): 
@@ -55,6 +49,10 @@ time_train = train.date_idx.values
 y_train = train.y_scaled.values
 time_test = test.date_idx.values
 y_test = test.y_scaled.values
+train_idx = pd.Categorical(train["administrative_area_level_2"]).codes
+test_idx = pd.Categorical(test["administrative_area_level_2"]).codes
+N = len(np.unique(train_idx))
+
 
 ###### Run on own data ######
 n = 2
@@ -68,6 +66,7 @@ with pm.Model() as m:
     
     # shared 
     t_shared = pm.Data('t_shared', time_train)
+    idx_shared = pm.Data('idx_shared', train_idx)
     
     # creating fourier
     x_week = c_week * t_shared
@@ -77,17 +76,17 @@ with pm.Model() as m:
     x_month_waves = tt.concatenate((tt.cos(x_month), tt.sin(x_month)), axis = 0)
     
     # beta
-    beta_week_waves = pm.Normal('beta_week_waves', mu = 0, sd = seasonality_prior_scale, shape = 2*n) 
-    beta_month_waves = pm.Normal('beta_month_waves', mu = 0, sd = seasonality_prior_scale, shape = 2*n)
-    beta_line = pm.Normal('beta_line', mu = 0, sd = 0.1)
+    beta_week_waves = pm.Normal('beta_week_waves', mu = 0, sd = seasonality_prior_scale, shape = (2*n, N)) # really don't know about this shape. 
+    beta_month_waves = pm.Normal('beta_month_waves', mu = 0, sd = seasonality_prior_scale, shape = (2*n, N))
+    beta_line = pm.Normal('beta_line', mu = 0, sd = 0.1, shape = N)
     
     # mu temp
-    mu_week_waves = pm.math.dot(x_week_waves.T, beta_week_waves) 
-    mu_month_waves = pm.math.dot(x_month_waves.T, beta_month_waves)
-    mu_line = beta_line * t_shared
+    mu_week_waves = pm.math.dot(x_week_waves.T, beta_week_waves[idx_shared]) 
+    mu_month_waves = pm.math.dot(x_month_waves.T, beta_month_waves[idx_shared])
+    mu_line = beta_line[idx_shared] * t_shared
     
     # mu = tt.sum(mu_tmp)
-    mu = mu_week_waves + mu_month_waves + mu_line
+    mu = mu_week_waves + mu_month_waves[idx_shared] + mu_line[idx_shared]
     
     # sigma 
     sigma = pm.HalfCauchy('sigma', 0.5)
