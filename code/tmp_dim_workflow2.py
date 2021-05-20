@@ -50,6 +50,9 @@ srrs_mn.log_radon.hist(bins=25);
 # model 1
 coords = {"Level": ["Basement", "Floor"], "obs_id": np.arange(floor.size)}
 
+log_radon.shape
+floor.shape
+
 with pm.Model(coords=coords) as pooled_model:
     floor_idx = pm.Data("floor_idx", floor, dims="obs_id")
     a = pm.Normal("a", 0.0, sigma=10.0, dims="Level")
@@ -115,22 +118,12 @@ ax.plot([0, 1], pooled_means.a, label="Exp. mean")
 ax.set_ylabel("Log radon level")
 ax.legend(ncol=2, fontsize=9, frameon=True);
 
-# complete pool 
-coords["County"] = mn_counties
-coords
-with pm.Model(coords=coords) as unpooled_model:
-    floor_idx = pm.Data("floor_idx", floor, dims="obs_id")
-    county_idx = pm.Data("county_idx", county, dims="obs_id")
-    a = pm.Normal("a", 0.0, sigma=10.0, dims=("County", "Level"))
 
-    theta = a[county_idx, floor_idx]
-    sigma = pm.Exponential("sigma", 1.0)
 
-    y = pm.Normal("y", theta, sigma=sigma, observed=log_radon, dims="obs_id")
-pm.model_to_graphviz(unpooled_model)
 
 #### Totally unpooled #### 
 coords["County"] = mn_counties
+
 with pm.Model(coords=coords) as unpooled_model:
     floor_idx = pm.Data("floor_idx", floor, dims="obs_id")
     county_idx = pm.Data("county_idx", county, dims="obs_id")
@@ -142,6 +135,7 @@ with pm.Model(coords=coords) as unpooled_model:
     y = pm.Normal("y", theta, sigma=sigma, observed=log_radon, dims="obs_id")
 pm.model_to_graphviz(unpooled_model)
 
+RANDOM_SEED = 42
 with unpooled_model:
     unpooled_idata = pm.sample(return_inferencedata=True, random_seed=RANDOM_SEED)
     
@@ -150,10 +144,26 @@ az.plot_forest(
     unpooled_idata, var_names="a", figsize=(6, 32), r_hat=True, combined=True, textsize=8
 );
 
-# unpooled. 
-unpooled_means = unpooled_idata.posterior.mean(dim=("chain", "draw"))
-unpooled_hdi = az.hdi(unpooled_idata)
 
+# posterior predictive
+with unpooled_model: 
+    preds = pm.sample_posterior_predictive(unpooled_idata)
+
+# predictions?
+with unpooled_model:
+    pm.set_data({"floor_idx": floor,
+                 "county_idx": county})
+    partial_pred = pm.fast_sample_posterior_predictive(
+        unpooled_idata.posterior
+    )
+    az.from_pymc3_predictions(
+        partial_pred, idata_orig=unpooled_idata, inplace=True
+    )
+
+partial_preds = unpooled_idata.predictions.assign_coords(floor_idx = floor, 
+                                                        county_idx = county)
+partial_preds
+unpooled_idata
 # plot
 fig, axes = plt.subplots(1, 2, figsize=(12, 5.5))
 xticks = np.arange(0, 86, 6)
