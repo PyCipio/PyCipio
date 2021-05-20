@@ -1,3 +1,8 @@
+'''
+VMP: 
+1. testing week & month
+2. pm.Beta() & fewer terms.
+'''
 ##### import stuff ###### 
 import numpy as np 
 import pandas as pd 
@@ -16,8 +21,7 @@ import theano.tensor as tt
 import random
 import fns as f
 
-##### generate data #####
-###### .... ###### 
+##### case 1: both trends multiplicative #####
 length = 90
 time = np.arange(0, length, 1) 
 time_true = np.append(time, time)
@@ -30,8 +34,8 @@ coses2 = np.cos(time) + 2*np.cos(0.25*time) + np.random.normal(0, 0.4, length)
 line1 = 1 + 0.5 * time + np.random.normal(0, 0.2, length) 
 line2 = 0.5 + 0.3 * time + np.random.normal(0, 0.2, length)
 
-y1 = sines1 + coses1 + line1
-y2 = sines2 + coses2 + line2
+y1 = sines1 + coses1 * line1 + line1
+y2 = sines2 + coses2 * line2 + line1
 
 y_true = np.append(y1, y2)
 idx_true = np.append(
@@ -51,13 +55,13 @@ time_scaled = (time - time.min()) / (time.max() - time.min())
 n_week_components = 1
 p_week_mu = (7 - time_true.min()) / (time_true.max() - time_true.min())
 p_week_sd = (2 - time_true.min()) / (time_true.max() - time_true.min())
-beta_week_sd = 0.1
+beta_week_sd = 0.2
 
 ## month
 n_month_components = 1
 p_month_mu = (30 - time_true.min()) / (time_true.max() - time_true.min())
 p_month_sd = (4 - time_true.min()) / (time_true.max() - time_true.min())
-beta_month_sd = 0.1
+beta_month_sd = 0.2
 
 # each individually?
 y_true_scaled = (y_true - y_true.min()) / (y_true.max() - y_true.min())
@@ -93,8 +97,8 @@ with pm.Model() as m0:
                                 sd = beta_month_sd, shape = (2*n_month_components, n_idx))
     
     # other priors
-    beta_line = pm.Normal('beta_line', mu = 0, sd = 0.1, shape = n_idx)
-    alpha = pm.Normal('alpha', mu = 0, sd = 0.1, shape = n_idx)
+    beta_line = pm.Normal('beta_line', mu = 0, sd = 0.2, shape = n_idx)
+    alpha = pm.Normal('alpha', mu = 0, sd = 0.2, shape = n_idx)
     
     # loop for week waves. 
     week_lst = []
@@ -120,7 +124,7 @@ with pm.Model() as m0:
     month_stacked = tt.stack(month_lst)
     month_flat = tt.flatten(month_stacked)
 
-    mu = alpha[idx_shared] + beta_line[idx_shared] * t_shared + week_flat + month_flat
+    mu = alpha[idx_shared] + beta_line[idx_shared] * t_shared + week_flat * t_shared + month_flat * t_shared
     
     # sigma 
     sigma = pm.Exponential('sigma', 1)
@@ -174,3 +178,6 @@ m_pred = m_pred.mean(axis = 0)
 # try to plot it 
 plt.plot(time_true_scaled, m_pred["y_pred"])
 plt.plot(time_true_scaled, y_true_scaled)
+
+# save it
+m0_idata.to_netcdf("../models/VMP_additive.nc")
