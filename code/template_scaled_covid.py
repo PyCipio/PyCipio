@@ -36,8 +36,8 @@ time_codes = "t_code"
 
 ## handling idx if missing
 if index == "None": 
-    df[index] == np.zeros(len(df))
-    df[index_codes] == np.zeros(len(df))
+    df[index] = np.zeros(len(df))
+    df[index_codes] = np.zeros(len(df))
 
 ## create idx codes
 df[index_codes] = pd.Categorical(df[index]).codes
@@ -47,7 +47,7 @@ if type(df[time]) != int:
     df[time_codes] = df.groupby([index]).cumcount()+0
 
 ## train / test split 
-train, test = f.train_test(df, time, train_size = split)
+train, test = f.train_test(df, time_codes, train_size = split)
 
 ## variables for test 
 t1_test = ((test[time_codes] - df[time_codes].min()) / (df[time_codes].max() - df[time_codes].min())).values
@@ -227,3 +227,6 @@ az.plot_trace(m0_idata)
 m_pred = m0_idata.posterior_predictive.mean(axis = 1)
 m_pred_std = m_pred.std(axis = 0)
 m_pred = m_pred.mean(axis = 0)
+
+###### Part 8: predictions ######
+
