@@ -27,7 +27,7 @@ def get_data(country = "USA", level = 3, start = date(2020,1,1), pr_capita = 100
     #Remove NAs
     x = x[x["new_infected"].notna()]
     #Remove peeked values with 3day rolling window 
-    x['smoothed_new_infected'] = x.groupby(["administrative_area_level_2"])['new_infected'].rolling(3).sum()
+    x['smoothed_new_infected'] = x['new_infected'].rolling(3).sum()
     #Normalize new infected per capita within state
     x["new_infected_pr_capita"] = (x["smoothed_new_infected"]/x["population"])*pr_capita
 
