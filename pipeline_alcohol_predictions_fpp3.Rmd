@@ -21,9 +21,11 @@ tsi <- data %>%
 ```
 
 ```{r}
+
 tsi %>%
   ggplot(aes(x = yearmonth, y = sales)) +
   geom_line()
+
 ```
 ```{r}
 smp_size <- floor(0.75 * nrow(tsi))
@@ -36,6 +38,7 @@ hh_fit <- train %>%
   tsibble::fill_gaps() %>%
   model(
     Mean = MEAN(sales),
+    ets = ETS(sales),
     Naive = NAIVE(sales),
     sNAIVE = SNAIVE(sales),
     Drift = RW(sales ~ drift()),
@@ -54,12 +57,24 @@ hh_pred %>%
   geom_vline(xintercept = as_date("2012-03-01"), lty = 2) 
 ```
 
+
+```{r}
+vector_mu = c()
+vector_sigma = c()
+
+for (val in 1:length(hh_pred$sales)) {
+vector_mu[val] <- hh_pred[[3]][[val]]$mu
+vector_sigma[val] <- hh_pred[[3]][[val]]$sigma
+}
+
+```
+
 ```{r}
 
-hh_pred_test = hh_pred %>%
-  mutate(mu = hh_pred$sales[2])
+hh_pred = hh_pred %>%
+  mutate(mu = vector_mu, sigma = vector_sigma)
 
-write.csv(hh_pred,"data/fpp3_alcohol_predictions.csv")
+#write.csv(hh_pred,"data/fpp3_alcohol_predictions.csv")
 ```
 
 
@@ -82,6 +97,7 @@ test2 <- tsi2[(smp_size2+1):length(tsi2$beer), ]
 hh_fit2 <- train2 %>%
   model(
     Mean = MEAN(beer),
+    ets = ETS(beer),
     Naive = NAIVE(beer),
     sNAIVE = SNAIVE(beer),
     Drift = RW(beer ~ drift()),
@@ -91,6 +107,16 @@ hh_fit2 <- train2 %>%
 hh_pred2 <- hh_fit2 %>% forecast(h = 82)
 hh_pred2
 
+vector_mu2 = c()
+vector_sigma2 = c()
+
+for (val in 1:length(hh_pred2$beer)) {
+vector_mu2[val] <- hh_pred2[[3]][[val]]$mu
+vector_sigma2[val] <- hh_pred2[[3]][[val]]$sigma
+}
+
+hh_pred2 = hh_pred2 %>%
+  mutate(mu = vector_mu2, sigma = vector_sigma2)
 
 ```
 
@@ -99,7 +125,8 @@ hh_pred2 %>%
   autoplot(tsi2) +
   geom_vline(xintercept = as_date("2012-03-01"), lty = 2) 
 ```
+
 ```{r}
-write.csv(hh_pred2,"data/fpp3_liquor_predictions.csv")
+#write.csv(hh_pred2,"data/fpp3_liquor_predictions.csv")
 ```
 
