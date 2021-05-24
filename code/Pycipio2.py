@@ -62,6 +62,19 @@ class PyCipio:
         self.n_train = len(np.unique(self.idx_train))
         
         self.coords = {"idx": self.train[index].values,}
+    
+    ## save data 
+    def save_idata(
+        self, 
+        path):
+        
+        self.m_idata.to_netcdf(path)
+    
+    def load_data(
+        self,
+        path): 
+        
+        self.m_idata = az.from_netcdf(path)
         
     def seasonal_component(
         self,
