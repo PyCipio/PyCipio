@@ -17,7 +17,7 @@ import fns as f
 
 #Load covid data:
 data = get_data(country = "USA", level = 2, start = date(2020,3,6), pr_capita = 100000)
-subset = data[data['administrative_area_level_2'].isin(["New York", "Mississippi", "Florida", "Nevada", "Colorado", "California", "Texas"])]
+subset = data[data['administrative_area_level_2'].isin(["Mississippi", "Florida", "Nevada", "Colorado", "California", "Texas"])]
 subset = subset[["date", "administrative_area_level_2", "new_infected_pr_capita"]]
 
 #Remove NAs:
