@@ -15,13 +15,13 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
-import Pycipio2 as pc 
+import PyCipio3 as pc 
 import pickle
 
 ## load data
 with open('../data/data_ex1.pickle', 'rb') as f:
     d = pickle.load(f)
-    
+
 ## instantiate class
 sim = pc.PyCipio(d, time = "t", values = "y", index = "idx", split = 0.7)
 
@@ -34,3 +34,5 @@ sim.load_idata("../models/m_ex1_7-1_30-1")
 ## now we can check stuff
 sim.plotting()
 sim.plot_train_idx("group_one")
+
+## predictions 

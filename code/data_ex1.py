@@ -14,7 +14,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
-import Pycipio2 as pc 
+import PyCipio3 as pc 
 import pickle
 
 ##### generate data #####

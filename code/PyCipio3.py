@@ -38,10 +38,10 @@ class PyCipio:
         self.df[self.index_codes] = pd.Categorical(self.df[self.index]).codes
 
         ## handling time 
-        if type(self.df[time]) != int:
-            self.df[time] = pd.to_datetime(self.df[time])
-            self.df[self.time_codes] = self.df.groupby([self.index]).cumcount()+0
-            
+        if type(self.df[self.time]) == str:
+            self.df[self.time] = pd.to_datetime(self.df[time])
+        
+        self.df[self.time_codes] = self.df.groupby([self.index]).cumcount()+0    
         self.train, self.test = f.train_test(self.df, self.time_codes, train_size = split)
         
         ### INIT FOR VALUES IN TEST AND TRAIN:
