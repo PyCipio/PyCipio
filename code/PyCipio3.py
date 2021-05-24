@@ -321,7 +321,7 @@ class PyCipio:
                         color = "C3")
         else:
             ax.plot(d_main[self.time].values, 
-                    self.scale_up(self.y_test), 
+                    self.scale_up(d_y), 
                     label = "data", 
                     linewidth = 1.5)
             ax.plot(d_main[self.time].values, 
