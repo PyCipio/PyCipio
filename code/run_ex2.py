@@ -38,7 +38,7 @@ sim.sample_mod()
 sim.plotting()
 
 ### plot training ###
-sim.plot_train_idx()
+sim.plot_fit_idx()
 
 ### plot prediction ###
 #sim.predict()
