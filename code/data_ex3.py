@@ -17,16 +17,19 @@ import fns as f
 
 #Load covid data:
 data = get_data(country = "USA", level = 2, start = date(2020,3,6), pr_capita = 100000)
-subset = data[data['administrative_area_level_2'].isin(["New York", "Mississippi", "Florida", "Nevada", "Colorado", "California", "Texas"])]
-subset = subset[["date", "administrative_area_level_2", "new_infected", "smoothed_new_infected", "new_infected_pr_capita"]]
+subset = data[data['administrative_area_level_2'].isin(["Florida", "Nevada", "California", "Texas"])]
+subset = subset[["date", "administrative_area_level_2", "new_infected_pr_capita"]]
 
 #Remove NAs:
-subset = subset[subset["new_infected"].notna()]
-subset = subset[subset["smoothed_new_infected"].notna()]
 subset = subset[subset["new_infected_pr_capita"].notna()]
 
+#Rename to common format:
+subset = subset.rename(columns={"date": "t", "new_infected_pr_capita": "y", "administrative_area_level_2": "idx"})
+
 ##Check data
-#sns.lineplot(data = subset, x = "date", y = "new_infected_pr_capita", hue = "administrative_area_level_2")
+sns.lineplot(data = subset, x = "t", y = "y", hue = "idx")
 
 #Save as pickle
-subset.to_pickle("../data/Example_3_covid.pkl")
+subset.to_pickle("../data/data_ex3.pkl")
+
+
