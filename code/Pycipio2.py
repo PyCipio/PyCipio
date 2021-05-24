@@ -68,13 +68,13 @@ class PyCipio:
         self, 
         path):
         
-        self.m_idata.to_netcdf(path)
+        self.m_idata.to_netcdf(f'{path}.nc')
     
-    def load_data(
+    def load_idata(
         self,
         path): 
         
-        self.m_idata = az.from_netcdf(path)
+        self.m_idata = az.from_netcdf(f'{path}.nc')
         
     def seasonal_component(
         self,
