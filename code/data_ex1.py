@@ -56,5 +56,4 @@ d = pd.DataFrame({
 sns.lineplot(data = d, x = "t", y = "y", hue = "idx")
 
 ## save the data
-with open('../data/data_ex1.pickle', 'wb') as f:
-    pickle.dump(d, f)
+d.to_pickle("../data/data_ex1.pkl")

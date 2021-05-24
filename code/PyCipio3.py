@@ -62,7 +62,7 @@ class PyCipio:
         self.idx_train = self.train[self.index_codes].values
         self.n_train = len(np.unique(self.idx_train))
         
-        self.coords = {"idx": self.train[self.index].values,}
+        self.coords = {"idx": self.train[self.index].values}
         
     def seasonal_component(
         self,
@@ -246,63 +246,16 @@ class PyCipio:
         
         return x * (maximum - minimum) + minimum
         
-    def plot_train_idx(self, idx = None):
+    def plot_fit_idx(self, idx = None):
+        
         m_pred = self.m_idata.posterior_predictive["y_pred"].mean(axis = 0)
         
-        if idx:
-            m_pred = m_pred.sel(idx = idx)
-        
-        ### NOTE: Currently these values are only calculated here, but they are used in predict
-        self.m_pred = self.scale_up(m_pred.data)
-        self.m_pred_std = self.m_pred.std(axis = 0)
-        self.m_pred_mean = self.m_pred.mean(axis = 0)
-        
-        ### plot
-        # plot them 
-        fig, ax = plt.subplots(figsize = (18, 10))
-        
-        if idx:
-            
-            ax.plot(self.train[self.time].values[(self.train[self.index] == idx)], 
-                    self.scale_up(self.y_train[(self.train[self.index] == idx)]), 
-                    label = "data", linewidth = 1.5)
-            ax.plot(self.train[self.time].values[(self.train[self.index] == idx)], 
-                    self.m_pred_mean, 
-                    ls="-.", 
-                    label = "prediction", 
-                    color = "C3", 
-                    linewidth = 2)
-            ax.fill_between(self.train[self.time].values[(self.train[self.index] == idx)], 
-                        self.m_pred_mean -1.96 * self.m_pred_std, 
-                        self.m_pred_mean + 1.96 * self.m_pred_std, 
-                        alpha=0.3, 
-                        label = "95% confidence interval",
-                        color = "C3")
-        else:
-            ax.plot(self.train[self.time].values, 
-                    self.scale_up(self.y_train), 
-                    label = "data", 
-                    linewidth = 1.5)
-            ax.plot(self.train[self.time].values, 
-                    self.m_pred_mean, 
-                    ls="-.", 
-                    label = "prediction", 
-                    color = "C3", 
-                    linewidth = 2)
-            
-            ax.fill_between(self.train[self.time].values, 
-                            self.m_pred_mean -1.96 * self.m_pred_std, 
-                            self.m_pred_mean + 1.96 * self.m_pred_std, 
-                            alpha=0.3, 
-                            label = "95% confidence interval",
-                            color = "C3")
-        ax.grid()
-        ax.legend()
+        self.plot_helper(m_pred, mode = "fit", idx = idx)
     
-    def plot_train_all(self): 
+    def plot_fit_all(self): 
         pass
         
-    def plot_train_avg(self):
+    def plot_fit_avg(self):
         m_pred = self.m_idata.posterior_predictive["y_pred"].mean(axis = 0).data
         m_pred = np.reshape(m_pred, (self.post_pred_draws, self.n_train, self.t3_train))
 
@@ -313,47 +266,85 @@ class PyCipio:
         # plot
         fig, ax = plt.subplots(figsize = (18, 10))
 
-    def predict(self):
+    def predict(self): ## make this work for only one. 
+        
         with self.model:
             pm.set_data({"t1_shared": self.t1_test})
             pm.set_data({"t2_shared": self.t2_test})
             pm.set_data({"idx_shared": self.idx_test})
             pm.set_data({"t3_shared": np.array(self.t3_test)})
-            self.m_new_pred = pm.fast_sample_posterior_predictive(
+            predictions = pm.fast_sample_posterior_predictive(
                 self.m_idata.posterior
             )
+            az.from_pymc3_predictions(
+                predictions, 
+                idata_orig = self.m_idata,
+                coords = {'idx': self.test[self.index].values},
+                inplace = True)
+
+    def plot_helper(self, m_pred, mode, idx = None):
         
-        ### get training values as well
+        # interpreter
+        interpreter = {
+            "fit": (self.train, self.y_train), 
+            "predict": (self.test, self.y_test)}
         
+        d_main, d_y = interpreter.get(mode)
         
-        ### get values
-        self.m_new_pred = self.scale_up(self.m_new_pred["y_pred"])
-        self.m_pred_test = self.m_new_pred.mean(axis = 0)
-        self.m_pred_test_std = self.m_new_pred.std(axis = 0)
+        if idx:
+            m_pred = m_pred.sel(idx = idx)
         
-        ## plot them (maybe should be in its own function)
+        ### NOTE: Currently these values are only calculated here, but they are used in predict
+        self.m_pred = self.scale_up(m_pred.data)
+        self.m_pred_std = self.m_pred.std(axis = 0)
+        self.m_pred_mean = self.m_pred.mean(axis = 0)
         
-        # plot them 
+        ### plot
         fig, ax = plt.subplots(figsize = (18, 10))
-        ax.plot(self.train[self.time].values, self.scale_up(self.y_train), label = "data", linewidth = 1.5)
-        ax.plot(self.train[self.time].values, self.m_pred_mean, ls="-.", label = "prediction", color = "C3", linewidth = 2)
-        ax.fill_between(self.train[self.time].values, 
+        
+        if idx:
+            
+            ax.plot(d_main[self.time].values[(d_main[self.index] == idx)], 
+                    self.scale_up(d_y[(d_main[self.index] == idx)]), 
+                    label = "data", linewidth = 1.5)
+            ax.plot(d_main[self.time].values[(d_main[self.index] == idx)], 
+                    self.m_pred_mean, 
+                    ls="-.", 
+                    label = "prediction", 
+                    color = "C3", 
+                    linewidth = 2)
+            ax.fill_between(d_main[self.time].values[(d_main[self.index] == idx)], 
                         self.m_pred_mean -1.96 * self.m_pred_std, 
                         self.m_pred_mean + 1.96 * self.m_pred_std, 
                         alpha=0.3, 
                         label = "95% confidence interval",
                         color = "C3")
-
-        ax.plot(self.test[self.time].values, self.scale_up(self.y_test), linewidth = 1.5, color = "C0")
-        ax.plot(self.test[self.time].values, self.m_pred_test, ls="-.", color = "C3", linewidth = 2)
-        ax.fill_between(self.test[self.time].values, 
-                        self.m_pred_test -1.96 * self.m_pred_test_std, 
-                        self.m_pred_test + 1.96 * self.m_pred_test_std, 
-                        alpha=0.3,
-                        color = "C3")
-        ax.axvline(self.train[self.time].values[-1], ls='--', label = "train test split", color = "black")
+        else:
+            ax.plot(d_main[self.time].values, 
+                    self.scale_up(self.y_test), 
+                    label = "data", 
+                    linewidth = 1.5)
+            ax.plot(d_main[self.time].values, 
+                    self.m_pred_mean, 
+                    ls="-.", 
+                    label = "prediction", 
+                    color = "C3", 
+                    linewidth = 2)
+            
+            ax.fill_between(d_main[self.time].values, 
+                            self.m_pred_mean -1.96 * self.m_pred_std, 
+                            self.m_pred_mean + 1.96 * self.m_pred_std, 
+                            alpha=0.3, 
+                            label = "95% confidence interval",
+                            color = "C3")
         ax.grid()
         ax.legend()
+        
+    def plot_predict_idx(self, idx): 
+        
+        m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
+        
+        self.plot_helper(m_pred, mode = "predict", idx = idx)
     
     ## save data 
     def save_idata(
