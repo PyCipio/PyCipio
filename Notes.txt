@@ -1,6 +1,0 @@
-## Notes
-
-(1) plot_pp
---> there is a difference between multilevel and individual.
---> however, seems that it is only in "y_pred" (solid black line).
---> must incorporate uncertainty into the shaded area and the draws I think.
