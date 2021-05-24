@@ -228,5 +228,7 @@ m_pred = m0_idata.posterior_predictive.mean(axis = 1)
 m_pred_std = m_pred.std(axis = 0)
 m_pred = m_pred.mean(axis = 0)
 
-###### Part 8: predictions ######
+##### Part 8: fit to data ######
+
+###### Part 9: predictions ######
 

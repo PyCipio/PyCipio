@@ -23,7 +23,7 @@ import fns as f
 
 ##### generate data #####
 ###### .... ###### 
-length = 90
+length = 120
 time = np.arange(0, length, 1) 
 time_true = np.append(time, time)
 
