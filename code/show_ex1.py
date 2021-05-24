@@ -15,7 +15,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
-import PyCipio3_VMP as pc 
+import PyCipio4v as pc 
 import pickle
 
 ## load data
@@ -42,3 +42,6 @@ sim.plot_fit_idx(["group_one"])
 sim.plot_predict_idx(["group_one", "group_two"])
 sim.plot_predict_idx(["group_one"])
 
+## check residuals
+sim.residual_plots(["group_one"])
+sim.residual_plots(["group_one", "group_two"])
