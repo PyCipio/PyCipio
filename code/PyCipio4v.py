@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd 
 from covid19dh import covid19
 from datetime import date
-
+import math
 from theano.tensor.subtensor import is_basic_idx
 from Get_covid_data import get_data
 import pymc3 as pm
@@ -422,54 +422,110 @@ class PyCipio:
                 idx = idx[0]
                 
                 # take idx out of list
-                m_pred = m_pred.sel(idx = idx)
+                m_pred_tmp = m_pred.sel(idx = idx)
+                m_pred_tmp = self.scale_up(m_pred_tmp.data)
+                m_pred_tmp = m_pred_tmp.mean(axis = 0)
                 
                 # create plot
                 fig, ax = plt.subplots(1, 2, figsize = (18, 10))
                 
+                # scale x and y
+                orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx)])
+                orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
+                
                 # take out the relevant data
-                error = [(true - pred) for true, pred in zip(self.y_test[(self.test[self.index] == idx)], m_pred)]
-                sns.distplot(error, ax = ax[0])
-                print(f'error = {len(error)}')
-                print(f'self-y-test = {len(self.y_test[(self.test[self.index] == idx)])}')
-                ax[1].scatter(
-                    x = self.y_test([(self.test[self.index] == idx)]),
-                    y = error)
-                ax[1].plot(
-                    self.y_test[(self.test[self.index] == idx)], 
-                    error)
+                error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+                sns.distplot(error, bins = math.floor(len(error)/5), ax = ax[0])
+
+                sns.lineplot(
+                    orig_x,
+                    error,
+                    marker="o",
+                    ax = ax[1]
+                )
+                
                 ax[1].hlines(
                     y = 0, 
-                    xmin = min(self.y_test[(self.test[self.index] == idx)]), 
-                    xmax = max(self.y_test[(self.test[self.index] == idx)]),
+                    xmin = min(orig_x), 
+                    xmax = max(orig_x),
                     colors = "black", linestyles = "dashed")
                 
-                fig.set_title(f'{idx}', fontsize = 15)
+                ax[0].set_title(f'{idx}', fontsize = 15)
+                ax[1].set_title(f'{idx}', fontsize = 15)
 
             else: 
                 # create plot
                 fig, ax = plt.subplots(
                     nrows = len(idx),
+                    ncols = 2,
                     sharey = False, # share y?
                     figsize = (18, 7*len(idx))) # how big?
-            
+
+                # scale x
+                orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
+                
                 for i in range(len(idx)):
                     # take out the relevant data
                     m_pred_tmp = m_pred.sel(idx = idx[i])
-                    error = [(true - pred) for true, pred in zip(self.y_test[(self.test[self.index] == idx[i])], m_pred_tmp)]
-                    sns.distplot(error, ax = ax[i])
-                    ax[i].set_title(f'{idx[i]}', fontsize = 15)
+                    m_pred_tmp = self.scale_up(m_pred_tmp.data)
+                    m_pred_tmp = m_pred_tmp.mean(axis = 0)
+                    
+                    # scale x and y
+                    orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx[i])])
+                    
+                    # take out the relevant data
+                    error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+                    sns.distplot(error, bins = math.floor(len(error)/5), ax = ax[i, 0])
 
-                
+                    sns.lineplot(
+                        orig_x,
+                        error,
+                        marker="o",
+                        ax = ax[i, 1]
+                    )
+                    
+                    ax[i, 1].hlines(
+                        y = 0, 
+                        xmin = min(orig_x), 
+                        xmax = max(orig_x),
+                        colors = "black", linestyles = "dashed")
+                    
+                    ax[i, 0].set_title(f'{idx[i]}', fontsize = 15)
+                    ax[i, 1].set_title(f'{idx[i]}', fontsize = 15)
+
         else: 
             # create plot
             fig, ax = plt.subplots(figsize = (18, 10))
             
+            # scale x and y
+            orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx)])
+            orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
+                
             # get residuals 
-            m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
-            error = [(true - pred) for true, pred in zip(self.y_test, m_pred)]
-            sns.distplot(error, ax = ax)
-            ax.set_title(f'{idx}', fontsize = 15)
+            m_pred_tmp = m_pred.mean(axis = 0)
+            m_pred_tmp = self.scale_up(m_pred_tmp.data)
+            
+            # take out the relevant data
+            error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+            sns.distplot(error, bins = math.floor(len(error)/5), ax = ax[0])
+
+            sns.lineplot(
+                orig_x,
+                error,
+                marker="o",
+                ax = ax[1]
+            )
+            
+            ax[1].hlines(
+                y = 0, 
+                xmin = min(orig_x), 
+                xmax = max(orig_x),
+                colors = "black", linestyles = "dashed")
+            
+            ax[0].set_title(f'{idx}', fontsize = 15)
+            ax[1].set_title(f'{idx}', fontsize = 15)
+            
+            
 
         fig.suptitle(
                     "residual plots",

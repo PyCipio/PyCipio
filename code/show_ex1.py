@@ -45,3 +45,5 @@ sim.plot_predict_idx(["group_one"])
 ## check residuals
 sim.residual_plots(["group_one"])
 sim.residual_plots(["group_one", "group_two"])
+
+## save stuff
