@@ -15,6 +15,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
+import pickle
 
 ###### Part 1: the data we receive #####
 df = get_data(level = 2, start = date(2020,3,6)) #can get more or less data here.
@@ -23,6 +24,9 @@ df["t"] = df["date"]
 df["y"] = df["new_infected_pr_capita"]
 df["idx"] = df["administrative_area_level_2"]
 df = df[["idx", "t", "y"]]
+
+with open('../data/data_ex3.pickle', 'wb') as f:
+    pickle.dump(df, f)
 
 ## user also gives us names 
 time = "t"
