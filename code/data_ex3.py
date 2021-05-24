@@ -17,7 +17,7 @@ import fns as f
 
 #Load covid data:
 data = get_data(country = "USA", level = 2, start = date(2020,3,6), pr_capita = 100000)
-subset = data[data['administrative_area_level_2'].isin(["Mississippi", "Florida", "Nevada", "Colorado", "California", "Texas"])]
+subset = data[data['administrative_area_level_2'].isin(["Florida", "Nevada", "California", "Texas"])]
 subset = subset[["date", "administrative_area_level_2", "new_infected_pr_capita"]]
 
 #Remove NAs:
@@ -31,3 +31,5 @@ sns.lineplot(data = subset, x = "t", y = "y", hue = "idx")
 
 #Save as pickle
 subset.to_pickle("../data/data_ex3.pkl")
+
+
