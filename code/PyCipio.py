@@ -510,7 +510,7 @@ class PyCipio:
 
         else: 
             # create plot
-            fig, ax = plt.subplots(figsize = (18, 10))
+            fig, ax = plt.subplots(1, 2, figsize = (18, 10))
             
             # scale x and y
             orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx)])
