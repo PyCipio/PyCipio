@@ -15,7 +15,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
-import PyCipio3 as pc 
+import PyCipio as pc 
 import pickle
 
 d = pd.read_csv("../data/archive/Alcohol_Sales.csv")
@@ -34,14 +34,21 @@ sim.fit(p1 = (4, 4), p2 = (12, 6), p1_mode = "multiplicative", p2_mode = "multip
 ##### sample #####
 sim.sample_mod()
 
-##### plotting #####
-sim.plotting()
+##### plot trace #####
+sim.plot_trace()
+
+### plot pp ###
+sim.plot_pp()
 
 ### plot training ###
 sim.plot_fit_idx()
 
 ### plot prediction ###
-#sim.predict()
+sim.plot_predict_idx()
 
-### save idata ###
+### get errors ###
+sim.get_errors()
+
+### plot residuals ###
+sim.residual_plots()
 sim.save_idata("../models/m_ex2_4-4M_12-6M")

@@ -1,4 +1,6 @@
 ##### import stuff ###### 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 import numpy as np 
 import pandas as pd 
 from covid19dh import covid19
@@ -408,7 +410,7 @@ class PyCipio:
                             alpha=0.3, 
                             label = "95% confidence interval",
                             color = "C3")
-            ax.set_title(f'{idx}', fontsize = 15)
+            #ax.set_title(f'{idx}', fontsize = 15)
             ax.grid()
             ax.legend()
         
@@ -425,7 +427,7 @@ class PyCipio:
             fig.savefig(f'{path}.png')
             
     ##### residuals & error #####
-    def residual_plots(self, idx = None, path = False):
+    def plot_residuals(self, idx = None, path = False):
         
         # get residuals 
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
@@ -537,8 +539,8 @@ class PyCipio:
                 xmax = max(orig_x),
                 colors = "black", linestyles = "dashed")
             
-            ax[0].set_title(f'{idx}', fontsize = 15)
-            ax[1].set_title(f'{idx}', fontsize = 15)
+            #ax[0].set_title(f'{idx}', fontsize = 15)
+            #ax[1].set_title(f'{idx}', fontsize = 15)
             
         # layout stuff 
         fig.suptitle(
