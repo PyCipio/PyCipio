@@ -69,6 +69,13 @@ class PyCipio:
         
         self.coords = {"idx": self.train[self.index].values}
         
+    def plot_data(self, path = False):
+        fig, ax = plt.subplots(figsize = (18, 10))
+        sns.lineplot(data = self.df, x = self.time, y = self.values, hue = self.index, ax = ax)
+        
+        if path:
+            fig.savefig(f"{path}.png")
+        
     def seasonal_component(
         self,
         name, 
