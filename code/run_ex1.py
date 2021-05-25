@@ -15,7 +15,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
-import PyCipio3 as pc 
+import PyCipio3_VMP as pc 
 import pickle
 
 ## load data
@@ -36,12 +36,15 @@ sim.fit(p1 = (7, 1), p2 = (30, 1), p1_mode = "additive", p2_mode = "additive")
 sim.sample_mod()
 
 ##### plotting #####
-## issue: 1970 from somewhere.
-sim.plotting()
+### updating checks and trace ###
+sim.plot_pp()
+sim.plot_trace()
 
-### plot training ###
-sim.plot_train_idx("group_one")
-sim.plot_train_idx("group_two")
+### plot fit ###
+sim.plot_fit_idx(["group_one", "group_two"])
+
+### plot pred ###
+sim.plot_predict_idx(["group_one", "group_two"])
 
 ### save idata ###
 sim.save_idata("../models/m_ex1_7-1_30-1")
