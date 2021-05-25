@@ -118,7 +118,7 @@ class PyCipio:
 
         return (beta_waves, x_waves, x_flat)
         
-    def fit(self, p1, p2, p1_mode, p2_mode, divisor = 20, deviation = 0.1):
+    def fit(self, p1, p2, p1_mode, p2_mode, divisor = 20, deviation = 0.2):
         ## NB: we assume that input is in days. 
 
         ## common across week & month (I guess)
