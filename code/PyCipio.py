@@ -427,7 +427,7 @@ class PyCipio:
             fig.savefig(f'{path}.png')
             
     ##### residuals & error #####
-    def residual_plots(self, idx = None, path = False):
+    def plot_residuals(self, idx = None, path = False):
         
         # get residuals 
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
