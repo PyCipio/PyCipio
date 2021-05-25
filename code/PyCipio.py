@@ -513,12 +513,12 @@ class PyCipio:
             fig, ax = plt.subplots(1, 2, figsize = (18, 10))
             
             # scale x and y
-            orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx)])
+            orig_y = self.scale_up(self.y_test)
             orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
                 
             # get residuals 
-            m_pred_tmp = m_pred.mean(axis = 0)
-            m_pred_tmp = self.scale_up(m_pred_tmp.data)
+            m_pred_tmp = self.scale_up(m_pred.data)
+            m_pred_tmp = m_pred_tmp.mean(axis = 0)
             
             # take out the relevant data
             error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
