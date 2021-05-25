@@ -14,7 +14,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
-import PyCipio3 as pc 
+import PyCipio as pc 
 import pickle
 
 ##### generate data #####
@@ -28,10 +28,10 @@ time_true = np.append(time, time)
 random.seed(17)
 
 ## sine, cos & lines. 
-sines1 = np.sin(1.9*time) + np.sin(0.9*time) + 2*np.sin(0.22*time) + np.random.normal(0, 0.1, length)
-sines2 = np.sin(2*time) + np.sin(time) + 2*np.sin(0.25*time) + np.random.normal(0, 0.1, length)
-coses1 = np.cos(1.9*time) + np.cos(0.9*time) + 2*np.cos(0.22*time) + np.random.normal(0, 0.1, length)
-coses2 = np.sin(2*time) + np.cos(time) + 2*np.cos(0.25*time) + np.random.normal(0, 0.1, length)
+sines2 = np.sin(time) + np.sin(2*time) + 2*np.sin(0.25*time) + np.sin(0.5*time) + np.random.normal(0, 0.1, length)
+sines1 = np.sin(0.95*time) + np.sin(1.9*time) + 2*np.sin(0.275*time) + np.sin(0.55*time) + np.random.normal(0, 0.1, length)
+coses2 = np.cos(time) + np.cos(2*time) + 2*np.cos(0.25*time) + np.cos(0.5*time) + np.random.normal(0, 0.1, length)
+coses1 = np.cos(0.95*time) + np.cos(1.9*time) + 2*np.cos(0.275*time) + np.cos(0.55*time) + np.random.normal(0, 0.1, length)
 line1 = 1 + 0.5 * time + np.random.normal(0, 0.1, length) 
 line2 = 0.5 + 0.3 * time + np.random.normal(0, 0.1, length)
 

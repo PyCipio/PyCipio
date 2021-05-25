@@ -69,6 +69,13 @@ class PyCipio:
         
         self.coords = {"idx": self.train[self.index].values}
         
+    def plot_data(self, path = False):
+        fig, ax = plt.subplots(figsize = (18, 10))
+        sns.lineplot(data = self.df, x = self.time, y = self.values, hue = self.index, ax = ax)
+        
+        if path:
+            fig.savefig(f"{path}.png")
+        
     def seasonal_component(
         self,
         name, 
@@ -118,13 +125,11 @@ class PyCipio:
 
         return (beta_waves, x_waves, x_flat)
         
-    def fit(self, p1, p2, p1_mode, p2_mode):
+    def fit(self, p1, p2, p1_mode, p2_mode, divisor = 20, deviation = 0.2):
         ## NB: we assume that input is in days. 
 
         ## common across week & month (I guess)
         ## NB: deviation might as well just go in on each place then.
-        divisor = 7
-        deviation = 0.2
 
         ## p1
         p1_mu, p1_components = p1
