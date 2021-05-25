@@ -74,7 +74,7 @@ class PyCipio:
         sns.lineplot(data = self.df, x = self.time, y = self.values, hue = self.index, ax = ax)
         
         if path:
-            fig.savefig(f"{path}.png"
+            fig.savefig(f"{path}.png")
         
     def seasonal_component(
         self,
