@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd 
 from covid19dh import covid19
 from datetime import date
-
+import math
 from theano.tensor.subtensor import is_basic_idx
 from Get_covid_data import get_data
 import pymc3 as pm
@@ -17,6 +17,7 @@ import theano
 import theano.tensor as tt 
 import random
 import fns as f
+import plotly.figure_factory as ff
 
 class PyCipio:
     def __init__(self, data, time, values, index = None, split = 0.7):
@@ -33,7 +34,7 @@ class PyCipio:
         ## handling idx if missing
         if self.index == None: 
             self.index = "idx"
-            self.df[self.index] = np.zeros(len(self.df))
+            self.df[self.index] = "group 1"
             self.df[self.index_codes] = np.zeros(len(self.df))
         
         ## create idx codes
@@ -201,7 +202,10 @@ class PyCipio:
             prior_pred = pm.sample_prior_predictive(100) # like setting this low. 
             m0_idata = az.from_pymc3(prior=prior_pred)
 
-        az.plot_ppc(m0_idata, group="prior")
+        az.plot_ppc(
+            m0_idata, 
+            group="prior",
+            figsize = (18, 10))
 
     ## convenience function 
     def sample_mod(
@@ -256,7 +260,7 @@ class PyCipio:
         return x * (maximum - minimum) + minimum
     
     #### plot functions ####
-    def plot_pp(self, num_pp = 100):
+    def plot_pp(self, num_pp = 100, path = False):
         ## plot checks 
         fig, axs = plt.subplots(2, figsize = (18, 14))
         az.plot_ppc(
@@ -273,25 +277,33 @@ class PyCipio:
             fontsize = 25)
         fig.tight_layout()
         plt.draw()
+        
+        if path:
+            fig.savefig(f'{path}.png')
 
-    def plot_trace(self):
+    def plot_trace(self, path = False):
+        
         ## plot trace
-        az.plot_trace(self.m_idata)
+        axes = az.plot_trace(
+            self.m_idata,
+            figsize = (18, 14))
+        fig = axes.ravel()[0].figure
+        plt.draw()
         
+        if path: 
+            fig.savefig(f'{path}.png')
         
-    def plot_fit_idx(self, idx = None):
-        
+    def plot_fit_idx(self, idx = None, path = False):
         m_pred = self.m_idata.posterior_predictive["y_pred"].mean(axis = 0)
-        
-        self.plot_helper(m_pred, mode = "fit", idx = idx)
+        self.plot_helper(m_pred, mode = "fit", idx = idx, path = path)
     
     
-    def plot_predict_idx(self, idx = None): 
+    def plot_predict_idx(self, idx = None, path = False): 
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
-        self.plot_helper(m_pred, mode = "predict", idx = idx)
+        self.plot_helper(m_pred, mode = "predict", idx = idx, path = path)
         
     ##### plot helper function #####
-    def plot_helper(self, m_pred, mode, idx = None):
+    def plot_helper(self, m_pred, mode, idx = None, path = False):
         
         # interpreter
         interpreter = {
@@ -408,9 +420,12 @@ class PyCipio:
             fig.suptitle(
                 'predictions on held-out data',
                 fontsize = 25)
-    
+
+        if path: 
+            fig.savefig(f'{path}.png')
+            
     ##### residuals & error #####
-    def residual_plots(self, idx = None):
+    def residual_plots(self, idx = None, path = False):
         
         # get residuals 
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
@@ -422,60 +437,162 @@ class PyCipio:
                 idx = idx[0]
                 
                 # take idx out of list
-                m_pred = m_pred.sel(idx = idx)
+                m_pred_tmp = m_pred.sel(idx = idx)
+                m_pred_tmp = self.scale_up(m_pred_tmp.data)
+                m_pred_tmp = m_pred_tmp.mean(axis = 0)
                 
                 # create plot
                 fig, ax = plt.subplots(1, 2, figsize = (18, 10))
                 
+                # scale x and y
+                orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx)])
+                orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
+                
                 # take out the relevant data
-                error = [(true - pred) for true, pred in zip(self.y_test[(self.test[self.index] == idx)], m_pred)]
-                sns.distplot(error, ax = ax[0])
-                print(f'error = {len(error)}')
-                print(f'self-y-test = {len(self.y_test[(self.test[self.index] == idx)])}')
-                ax[1].scatter(
-                    x = self.y_test([(self.test[self.index] == idx)]),
-                    y = error)
-                ax[1].plot(
-                    self.y_test[(self.test[self.index] == idx)], 
-                    error)
+                error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+                sns.distplot(error, bins = math.floor(len(error)/5), ax = ax[0])
+
+                sns.lineplot(
+                    orig_x,
+                    error,
+                    marker="o",
+                    ax = ax[1]
+                )
+                
                 ax[1].hlines(
                     y = 0, 
-                    xmin = min(self.y_test[(self.test[self.index] == idx)]), 
-                    xmax = max(self.y_test[(self.test[self.index] == idx)]),
+                    xmin = min(orig_x), 
+                    xmax = max(orig_x),
                     colors = "black", linestyles = "dashed")
                 
-                fig.set_title(f'{idx}', fontsize = 15)
+                ax[0].set_title(f'{idx}', fontsize = 15)
+                ax[1].set_title(f'{idx}', fontsize = 15)
 
             else: 
                 # create plot
                 fig, ax = plt.subplots(
                     nrows = len(idx),
+                    ncols = 2,
                     sharey = False, # share y?
                     figsize = (18, 7*len(idx))) # how big?
-            
+
+                # scale x
+                orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
+                
                 for i in range(len(idx)):
                     # take out the relevant data
                     m_pred_tmp = m_pred.sel(idx = idx[i])
-                    error = [(true - pred) for true, pred in zip(self.y_test[(self.test[self.index] == idx[i])], m_pred_tmp)]
-                    sns.distplot(error, ax = ax[i])
-                    ax[i].set_title(f'{idx[i]}', fontsize = 15)
+                    m_pred_tmp = self.scale_up(m_pred_tmp.data)
+                    m_pred_tmp = m_pred_tmp.mean(axis = 0)
+                    
+                    # scale x and y
+                    orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx[i])])
+                    
+                    # take out the relevant data
+                    error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+                    sns.distplot(error, bins = math.floor(len(error)/5), ax = ax[i, 0])
 
-                
+                    sns.lineplot(
+                        orig_x,
+                        error,
+                        marker="o",
+                        ax = ax[i, 1]
+                    )
+                    
+                    ax[i, 1].hlines(
+                        y = 0, 
+                        xmin = min(orig_x), 
+                        xmax = max(orig_x),
+                        colors = "black", linestyles = "dashed")
+                    
+                    ax[i, 0].set_title(f'{idx[i]}', fontsize = 15)
+                    ax[i, 1].set_title(f'{idx[i]}', fontsize = 15)
+
         else: 
             # create plot
             fig, ax = plt.subplots(figsize = (18, 10))
             
+            # scale x and y
+            orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx)])
+            orig_x = self.t2_test * (self.train[self.time].max() - self.train[self.time].min()) + self.train[self.time].min()
+                
             # get residuals 
-            m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
-            error = [(true - pred) for true, pred in zip(self.y_test, m_pred)]
-            sns.distplot(error, ax = ax)
-            ax.set_title(f'{idx}', fontsize = 15)
+            m_pred_tmp = m_pred.mean(axis = 0)
+            m_pred_tmp = self.scale_up(m_pred_tmp.data)
+            
+            # take out the relevant data
+            error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+            sns.distplot(error, bins = math.floor(len(error)/5), ax = ax[0])
 
+            sns.lineplot(
+                orig_x,
+                error,
+                marker="o",
+                ax = ax[1]
+            )
+            
+            ax[1].hlines(
+                y = 0, 
+                xmin = min(orig_x), 
+                xmax = max(orig_x),
+                colors = "black", linestyles = "dashed")
+            
+            ax[0].set_title(f'{idx}', fontsize = 15)
+            ax[1].set_title(f'{idx}', fontsize = 15)
+            
+        # layout stuff 
         fig.suptitle(
                     "residual plots",
                     fontsize = 25)
         fig.tight_layout()
+        
+        # optionally save
+        if path: 
+            fig.savefig(f'{path}.png')
     
+    ## errors
+    def get_errors(self, path = False): 
+        
+        # get residuals 
+        m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
+
+        idx = np.unique(self.df[self.index])
+        
+        RMSE, MAE, MAPE, sMAPE = [], [], [], []
+        
+        for i in range(len(idx)):
+            m_pred_tmp = m_pred.sel(idx = idx[i])
+            m_pred_tmp = self.scale_up(m_pred_tmp.data)
+            m_pred_tmp = m_pred_tmp.mean(axis = 0)
+        
+            # scale y
+            orig_y = self.scale_up(self.y_test[(self.test[self.index] == idx[i])])
+
+            # take out the relevant data
+            error = [(true - pred) for true, pred in zip(orig_y, m_pred_tmp)]
+        
+            ## RMSE 
+            RMSE.append(round(np.sqrt(np.mean([error**2 for error in error])), 2))
+            MAE.append(round(np.mean([abs(error) for error in error]), 2))
+            MAPE.append(round(np.mean([abs(100 * error[i] / orig_y) for i in range(len(error))]), 2))
+            sMAPE.append(round(np.mean([200*abs(orig_y[i]-m_pred_tmp[i])/(orig_y[i]+m_pred_tmp[i]) for i in range(len(orig_y))]), 2))
+        
+        # group it up real nice and cozy. 
+        d = pd.DataFrame({
+            'idx': idx,
+            'RMSE': RMSE,
+            'MAE': MAE,
+            'MAPE': MAPE,
+            'sMAPE': sMAPE
+        })
+
+        if path: 
+            fig = ff.create_table(d)
+            fig.write_image(f'{path}.png')
+            
+        # show table 
+        return(d)
+
     ## save data 
     def save_idata(
         self, 

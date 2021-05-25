@@ -31,17 +31,33 @@ sim.fit(p1 = (7, 1), p2 = (30, 1), p1_mode = "additive", p2_mode = "additive")
 sim.load_idata("../models/m_ex1_7-1_30-1")
 
 ## check that everything is good
-sim.plot_pp()
-sim.plot_trace()
+sim.plot_pp(path = "../plots/ex1_plot_pp")
+sim.plot_trace(path = '../plots/ex1_plot_trace')
 
 ## check fit 
-sim.plot_fit_idx(["group_one", "group_two"])
-sim.plot_fit_idx(["group_one"])
+sim.plot_fit_idx(
+    ["group_one", "group_two"],
+    path = "../plots/ex1_plot_fit_idx_all")
+
+sim.plot_fit_idx(
+    ["group_one"],
+    path = "../plots/ex1_plot_fit_idx_single")
 
 ## check predictions 
-sim.plot_predict_idx(["group_one", "group_two"])
-sim.plot_predict_idx(["group_one"])
+sim.plot_predict_idx(
+    ["group_one", "group_two"],
+    path = "../plots/ex1_plot_predict_idx_all")
+sim.plot_predict_idx(
+    ["group_one"],
+    path = "../plots/ex1_plot_predict_idx_single")
 
 ## check residuals
-sim.residual_plots(["group_one"])
-sim.residual_plots(["group_one", "group_two"])
+sim.residual_plots(
+    ["group_one", "group_two"],
+    path = "../plots/ex1_residual_plots_all")
+sim.residual_plots(
+    ["group_one"],
+    path = "../plots/ex1_residual_plots_single")
+
+## errors
+sim.get_errors(path = "../plots/ex1_get_errors")
