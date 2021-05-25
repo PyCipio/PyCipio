@@ -32,8 +32,7 @@ sim1.fit(
     p1 = (7, 1), 
     p2 = (30, 1), 
     p1_mode = "additive", 
-    p2_mode = "additive",
-    divisor = 20)
+    p2_mode = "additive")
 
 ##### sample #####
 sim1.sample_mod()
@@ -69,8 +68,7 @@ sim2.fit(
     p1 = (7, 2), 
     p2 = (30, 2), 
     p1_mode = "additive", 
-    p2_mode = "additive",
-    divisor = 20)
+    p2_mode = "additive")
 
 ##### sample #####
 sim2.sample_mod()
