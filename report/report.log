@@ -1,22 +1,21 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.3.23)  25 MAY 2021 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.3.23)  26 MAY 2021 12:05
 entering extended mode
 **c:/Users/Mikkel/Documents/PyCipio/report/report.tex
 (c:/Users/Mikkel/Documents/PyCipio/report/report.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\report.cls"
-Document Class: report 2019/12/20 v1.4l Standard LaTeX document class
+L3 programming layer <2020-03-06> ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size10.clo"
 File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
 \c@part=\count167
-\c@chapter=\count168
-\c@section=\count169
-\c@subsection=\count170
-\c@subsubsection=\count171
-\c@paragraph=\count172
-\c@subparagraph=\count173
-\c@figure=\count174
-\c@table=\count175
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
@@ -38,11 +37,11 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of 
 Language: english 2017/06/06 v3.3r English support from the babel system
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
 File: babel.def 2020/02/28 3.41 Babel common definitions
-\babel@savecnt=\count176
+\babel@savecnt=\count175
 \U@D=\dimen135
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.def")
 \bbl@readstream=\read2
-\bbl@dirlevel=\count177
+\bbl@dirlevel=\count176
 )
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
@@ -52,7 +51,7 @@ Package babel Info: \l@newzealand = using hyphenrules for ukenglish
 (babel)             (\language72) on input line 108.
 )) ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/apacite\apacite.sty"
 Package: apacite 2013/07/21 v6.03 APA citation
-\c@BibCnt=\count178
+\c@BibCnt=\count177
 \bibleftmargin=\skip49
 \bibindent=\skip50
 \bibparsep=\skip51
@@ -125,8 +124,8 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 \caption@hangindent=\dimen144
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count179
-\c@continuedfloat=\count180
+\c@caption@flags=\count178
+\c@continuedfloat=\count179
 ) ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\subfigure.sty"
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip54
@@ -135,10 +134,10 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigbottomskip=\skip56
 \subfigcapmargin=\dimen146
 \subfiglabelskip=\skip57
-\c@subfigure=\count181
-\c@lofdepth=\count182
-\c@subtable=\count183
-\c@lotdepth=\count184
+\c@subfigure=\count180
+\c@lofdepth=\count181
+\c@subtable=\count182
+\c@lotdepth=\count183
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -148,7 +147,7 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfig@bottom=\skip59
 ) ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count185
+\c@float@type=\count184
 \float@exts=\toks18
 \float@box=\box45
 \@float@everytoks=\toks19
@@ -166,46 +165,46 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@O@orf=\skip68
 ) ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count186
+\l__kernel_color_stack_int=\count185
 \l__pdf_internal_box=\box47
 ) (c:/Users\Mikkel\Documents\PyCipio\report\report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 30.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\c@maskedRefs=\count187
+\c@maskedRefs=\count186
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/apacite\english.apc"
 File: english.apc 2013/07/21 v6.03 apacite language file
 LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 ) ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count188
+\scratchcounter=\count187
 \scratchdimen=\dimen147
 \scratchbox=\box48
-\nofMPsegments=\count189
-\nofMParguments=\count190
+\nofMPsegments=\count188
+\nofMParguments=\count189
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count191
+\MPscratchCnt=\count190
 \MPscratchDim=\dimen148
-\MPnumerator=\count192
-\makeMPintoPDFobject=\count193
+\MPnumerator=\count191
+\makeMPintoPDFobject=\count192
 \everyMPtoPDFconversion=\toks21
 ) ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -216,67 +215,75 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 32.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 31.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 32.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 31.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 32.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 31.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 32.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 31.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
- [1
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+ [1{C:/Users/Mikkel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-{C:/Users/Mikkel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<../plots/ex1_plot_fit_idx_all.png, id=6, 1300.86pt x 1011.78pt>
-File: ../plots/ex1_plot_fit_idx_all.png Graphic file (type png)
-<use ../plots/ex1_plot_fit_idx_all.png>
-Package pdftex.def Info: ../plots/ex1_plot_fit_idx_all.png  used on input line 39.
-(pdftex.def)             Requested size: 155.24895pt x 120.7445pt.
-<../plots/ex1_plot_fit_idx_single.png, id=8, 1300.86pt x 722.7pt>
-File: ../plots/ex1_plot_fit_idx_single.png Graphic file (type png)
-<use ../plots/ex1_plot_fit_idx_single.png>
-Package pdftex.def Info: ../plots/ex1_plot_fit_idx_single.png  used on input line 43.
-(pdftex.def)             Requested size: 155.24895pt x 86.24606pt.
-File: ../plots/ex1_plot_fit_idx_single.png Graphic file (type png)
-<use ../plots/ex1_plot_fit_idx_single.png>
-Package pdftex.def Info: ../plots/ex1_plot_fit_idx_single.png  used on input line 46.
-(pdftex.def)             Requested size: 155.24895pt x 86.24606pt.
-File: ../plots/ex1_plot_fit_idx_single.png Graphic file (type png)
-<use ../plots/ex1_plot_fit_idx_single.png>
-Package pdftex.def Info: ../plots/ex1_plot_fit_idx_single.png  used on input line 50.
+]
+<../plots/ex1_first_plot_predict_idx_all.png, id=14, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_first_plot_predict_idx_all.png Graphic file (type png)
+<use ../plots/ex1_first_plot_predict_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_predict_idx_all.png  used on input line 54.
+(pdftex.def)             Requested size: 103.50105pt x 80.49634pt.
+<../plots/ex1_first_plot_pp.png, id=16, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_first_plot_pp.png Graphic file (type png)
+<use ../plots/ex1_first_plot_pp.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_pp.png  used on input line 58.
+(pdftex.def)             Requested size: 103.50105pt x 80.49634pt.
+<../plots/ex1_first_residual_plots_all.png, id=17, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_first_residual_plots_all.png Graphic file (type png)
+<use ../plots/ex1_first_residual_plots_all.png>
+Package pdftex.def Info: ../plots/ex1_first_residual_plots_all.png  used on input line 61.
+(pdftex.def)             Requested size: 103.50105pt x 80.49634pt.
+<../plots/ex1_second_plot_predict_idx_single.png, id=18, 1300.86pt x 722.7pt>
+File: ../plots/ex1_second_plot_predict_idx_single.png Graphic file (type png)
+<use ../plots/ex1_second_plot_predict_idx_single.png>
+Package pdftex.def Info: ../plots/ex1_second_plot_predict_idx_single.png  used on input line 65.
 (pdftex.def)             Requested size: 155.24895pt x 86.24606pt.
 
 
 Package caption Warning: Unused \captionsetup[ContinuedFloat] on input line 9.
 See the caption package documentation for explanation.
 
-[1 <../plots/ex1_plot_fit_idx_all.png> <../plots/ex1_plot_fit_idx_single.png>] (c:/Users\Mikkel\Documents\PyCipio\report\report.aux) ) 
+[2 <../plots/ex1_first_plot_predict_idx_all.png> <../plots/ex1_first_plot_pp.png> <../plots/ex1_first_residual_plots_all.png> <../plots/ex1_second_plot_predict_idx_single.png>] (c:/Users\Mikkel\Documents\PyCipio\report\report.aux) ) 
 Here is how much of TeX's memory you used:
- 3835 strings out of 480934
- 60729 string characters out of 2899449
- 306942 words of memory out of 3000000
- 19668 multiletter control sequences out of 15000+200000
- 551662 words of font info for 56 fonts, out of 3000000 for 9000
+ 3869 strings out of 480934
+ 61542 string characters out of 2899449
+ 307609 words of memory out of 3000000
+ 19686 multiletter control sequences out of 15000+200000
+ 567025 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,45p,298b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users\Mikkel\Documents\PyCipio\report\report.pdf (2 pages, 201171 bytes).
+ 41i,11n,45p,298b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:/Users\Mikkel\Documents\PyCipio\report\report.pdf (2 pages, 577506 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

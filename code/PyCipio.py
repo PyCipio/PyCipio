@@ -21,8 +21,32 @@ import random
 import fns as f
 import plotly.figure_factory as ff
 
-class PyCipio:
+class PyCipio: 
+    """
+    Main class for the PyCipio package. 
+    """           
     def __init__(self, data, time, values, index = None, split = 0.7):
+        """Initializing the class. Assumes that data is a pandas DataFrame object.
+
+        Args:
+            data (pd.DataFrame): Dataframe containing a column containing time indices and a column containing values.
+            Additionally, data can also contain a column which specifies groups in the data, but is not required. 
+            time (str): Column name in data, which specifies time indices.
+            values (str): Column name in data, which specifies the values of y
+            index (str, optional): Column name in data, which specifies a grouping variable. If this variable is given,
+            the analysis will be carried out independently for each grouping. Defaults to None.
+            split (float, optional): Float indicating the proportion of data used for training. Defaults to 0.7.
+
+        Returns:
+            The initialization of the class does not return anything, but stores the variable names,
+            min-max scales both the values and time, and prepares all the data for fitting the model. 
+
+        Examples:
+            Pc = PyCipio(data = data, time = "x", values = "y", index = "group", split = 0.8)
+
+
+
+        """                
         
         ### specify data
         
@@ -70,6 +94,16 @@ class PyCipio:
         self.coords = {"idx": self.train[self.index].values}
         
     def plot_data(self, path = False):
+        """Plots the raw data in a lineplot.
+
+        Args:
+            path (str, optional): Path to where the plot should be saved. 
+            The path is supplied with ".png" ending. Defaults to False.
+
+        Example:
+            Pc.plot_data(path = "plots/lineplot")
+
+        """        
         fig, ax = plt.subplots(figsize = (18, 10))
         sns.lineplot(data = self.df, x = self.time, y = self.values, hue = self.index, ax = ax)
         
@@ -89,6 +123,27 @@ class PyCipio:
         t2,
         t3,
         mode):
+        """Adds a seasonal component to the model.
+
+        Args:
+            name (str): Name for p in the model context.
+            name_beta (str): Name for beta in the model context.
+            mu (float): Mean of the parameter p.
+            sd (float): Standard deviation for the parameter p.
+            beta_sd (float): Standard deviation for beta.
+            n_components (int): Number of components for Fourier series.
+            shape (tuple): Tuple indicating the shape of the p.
+            t1 (pm.Data): Time vector, which is a shared object which can be updated for prediction. 
+            t2 (pm.Data): Stacked time vector, which is a shared object, used for prediction.
+            t3 (pm.Data): Length of time vector, which is a shared object, used for prediction.
+            mode (str): Specifies whether the seasonal component is additive or multiplicative. 
+            If anything else than "multiplicative" is specified, the mode defaults to additive.
+
+        Returns:
+            beta_waves, x_waves, x_flat: Returns the beta for the waves, 
+            the seasonal decomposition matrix, and the flattened seasonal component, 
+            which is added or multiplied to the prediction of y.   
+        """        
 
         p = pm.Beta(name, 
                     mu = mu, 
@@ -126,6 +181,23 @@ class PyCipio:
         return (beta_waves, x_waves, x_flat)
         
     def fit(self, p1, p2, p1_mode, p2_mode, divisor = 20, deviation = 0.2):
+        """Fits the model and plots the prior predictive distribution.
+
+        Args:
+            p1 (tuple): Tuple of integers, where the first value is the value of p 
+            and the second value is the number of components. First value can be 
+            specified as a float, while the second value must be an integer.
+            p2 (tuple): Tuple of integers, where the first value is the value of p 
+            and the second value is the number of components. First value can be 
+            specified as a float, while the second value must be an integer.
+            p1_mode (str): String indicating whether the seasonal component should be multiplicative or additive.
+            p2_mode (str): String indicating whether the seasonal component should be multiplicative or additive.
+            divisor (int, optional): A scaling parameter for adjusting the standard deviation of the distribution of p. Defaults to 20.
+            deviation (float, optional): Parameter specifying the standard deviation of the beta for the seasonal component. Defaults to 0.2.
+
+        Example:
+            Pc.fit(p1 = (7, 2), p2 = (365.25, 2), p1_mode = "additive", p2_mode = "multiplicative", divisor = 15, deviation = 0.3)
+        """        
         ## NB: we assume that input is in days. 
 
         ## common across week & month (I guess)
@@ -222,6 +294,17 @@ class PyCipio:
         prior_pred_draws = 1000,
         random_seed = 42,
         chains = 2):
+        """Sample the posterior, the posterior predictive and the prior predictive distribution.
+
+        Args:
+            posterior_draws (int, optional): Number of draws for the posterior. Defaults to 2000.
+            prior_pred_draws (int, optional): Number of draws for the prior predictive distribution. Defaults to 1000.
+            random_seed (int, optional): Random seed for ensuring reproducibility. Defaults to 42.
+            chains (int, optional): Number of chains used for sampling the posterior. Defaults to 2.
+
+        Example:
+            Pc.sample_mod(posterior_draws = 3000, post_pred_draws = 1500, prior_pred_draws = 55, random_seed = 13, chains = 4)
+        """        
 
         # we need these for later
         self.posterior_draws = posterior_draws
@@ -268,6 +351,13 @@ class PyCipio:
     
     #### plot functions ####
     def plot_pp(self, num_pp = 100, path = False):
+        """Plotting the prior predictive and posterior predictive distribution.
+
+        Args:
+            num_pp (int, optional): Number of draws used for visualization. Defaults to 100.
+            path (str, optional): String specifying the path for saving the plot. 
+            File-extension is automatically inserted and is hardset to .png. Defaults to False.
+        """        
         ## plot checks 
         fig, axs = plt.subplots(2, figsize = (18, 14))
         az.plot_ppc(
@@ -289,6 +379,12 @@ class PyCipio:
             fig.savefig(f'{path}.png')
 
     def plot_trace(self, path = False):
+        """Plots the trace of the model.
+
+        Args:
+            path (str, optional): String specifying the path for saving the plot. 
+            File-extension is automatically inserted and is hardset to .png. Defaults to False.
+        """        
         
         ## plot trace
         axes = az.plot_trace(
@@ -301,11 +397,25 @@ class PyCipio:
             fig.savefig(f'{path}.png')
         
     def plot_fit_idx(self, idx = None, path = False):
+        """Plots the posterior predictive distribution overlayed on the training data.
+
+        Args:
+            idx (list, optional): List of strings, containing the groups to plot. Defaults to None.
+            path (str, optional): String specifying the path for saving the plot. 
+            File-extension is automatically inserted and is hardset to .png. Defaults to False.
+        """        
         m_pred = self.m_idata.posterior_predictive["y_pred"].mean(axis = 0)
         self.plot_helper(m_pred, mode = "fit", idx = idx, path = path)
     
     
     def plot_predict_idx(self, idx = None, path = False): 
+        """Plots the posterior predictive distribution overlayed on the test data.
+
+        Args:
+            idx (list, optional): List of strings, containing the groups to plot. Defaults to None.
+            path (str, optional): String specifying the path for saving the plot. 
+            File-extension is automatically inserted and is hardset to .png. Defaults to False.
+        """       
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
         self.plot_helper(m_pred, mode = "predict", idx = idx, path = path)
         
@@ -433,6 +543,13 @@ class PyCipio:
             
     ##### residuals & error #####
     def plot_residuals(self, idx = None, path = False):
+        """Plots the residuals from predictions made from the model.
+
+        Args:
+            idx (list, optional): List of strings containing the names of the groups to plot. Defaults to None.
+            path (str, optional): String specifying the path for saving the plot. 
+            File-extension is automatically inserted and is hardset to .png. Defaults to False.
+        """        
         
         # get residuals 
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
@@ -559,6 +676,12 @@ class PyCipio:
     
     ## errors
     def get_errors(self, path = False): 
+        """Returns the forecast error indices RMSE, MAE, MAPE, sMAPE.
+
+        Args:
+            path (str, optional): String specifying the path for saving the plot. 
+            File-extension is automatically inserted and is hardset to .png. Defaults to False.
+        """        
         
         # get residuals 
         m_pred = self.m_idata.predictions["y_pred"].mean(axis = 0)
@@ -604,11 +727,23 @@ class PyCipio:
     def save_idata(
         self, 
         path):
+        """Save the idata object obtained from sampled model.
+
+        Args:
+            path (str): String specifying the path for saving the idata. 
+            File-extension is automatically inserted and is hardset to .nc.
+        """        
 
         self.m_idata.to_netcdf(f'{path}.nc')
 
     def load_idata(
         self,
-        path): 
+        path):
+        """Load idata object obtained from saved idata.
+
+        Args:
+            path (str): String specifying the path for loading the idata. 
+            File-extension is automatically inserted and is hardset to .nc.
+        """         
 
         self.m_idata = az.from_netcdf(f'{path}.nc')
