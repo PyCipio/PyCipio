@@ -11,6 +11,7 @@
 \usepackage{subfigure}
 \usepackage{float}
 \usepackage{fancyhdr}
+\usepackage{listings}
 
 %% CHANGE MARGINS
 
@@ -69,6 +70,226 @@ $$y(t) = alpha + beta \cdot x + s_1(t) + s_2(t)$$
 \subsection{Object Oriented Programming}
 
 \subsection{Primary Functions}
+
+\begin{lstlisting}[language=Python]
+PyCipio.__init__(data, time, values, index = None, split = 0.7):
+\end{lstlisting}
+
+\indent \textbf{Description:} 
+
+\indent \indent Initializing the class. Assumes that data is a pandas DataFrame object.
+
+\indent \textbf{Arguments:}
+
+\indent \indent \textit{data (pd.DataFrame):} 
+
+\indent \indent \indent Dataframe containing a column containing time indices and a column containing values. 
+
+\indent \indent \indent Additionally, data can also contain a column which specifies groups in the data, but is not required. 
+
+\indent \indent \textit{time (str):} 
+
+\indent \indent \indent Column name in data, which specifies time indices.
+
+\indent \indent \textit{values (str):} 
+
+\indent \indent \indent Column name in data, which specifies the values of y.
+            
+\indent \indent \textit{index (str, optional):} 
+
+\indent \indent \indent Column name in data, which specifies a grouping variable. If this variable is given, 
+
+\indent \indent \indent the analysis will be carried out independently for each grouping. Defaults to None.
+
+\indent \indent \textit{split (float, optional):} 
+
+\indent \indent \indent Float indicating the proportion of data used for training. Defaults to 0.7.
+
+
+\indent \textbf{Example:}
+\begin{lstlisting}[language=Python]
+		 Pc = PyCipio(data = data, 
+                      time = "x", 
+                      values = "y", 
+                      index = "group", 
+                      split = 0.8)
+
+\end{lstlisting}
+
+%%% FUNCTION 2
+\hrule
+
+\begin{lstlisting}[language=Python]
+    PyCipio.fit(p1, p2, p1_mode, p2_mode, divisor = 20, deviation = 0.2):
+\end{lstlisting}
+
+\indent \textbf{Description:} 
+
+\indent \indent Fits the model and plots the prior predictive distribution.
+
+\indent \textbf{Arguments:}
+
+\indent \indent \textit{p1 (tuple):} 
+
+\indent \indent \indent Tuple of integers, where the first value is the value of p and the second value
+
+\indent \indent \indent is the number of components. First value can be specified as a float, 
+
+\indent \indent \indent while the second value must be an integer.
+
+\indent \indent \textit{p2 (tuple):} 
+
+\indent \indent \indent Tuple of integers, where the first value is the value of p and the second value
+
+\indent \indent \indent is the number of components. First value can be specified as a float, 
+
+\indent \indent \indent while the second value must be an integer.
+
+\indent \indent \textit{p1\_mode (str):} 
+
+\indent \indent \indent String indicating whether the seasonal component should be
+multiplicative or additive. 
+
+\indent \indent \indent If anything else than "multiplicative" is specified,
+the mode defaults to additive.
+
+\indent \indent \textit{p2\_mode (str):} 
+
+\indent \indent \indent String indicating whether the seasonal component should be
+multiplicative or additive. 
+
+\indent \indent \indent If anything else than "multiplicative" is specified,
+the mode defaults to additive.
+
+\indent \indent \textit{divisor (int, optional):} 
+
+\indent \indent \indent A scaling parameter for adjusting the standard deviation of the distribution
+of p. 
+
+\indent \indent \indent The standard deviation of p is set to p/divisor. Defaults to 20. 
+
+\indent \indent \textit{deviation (float, optional):} 
+
+\indent \indent \indent Parameter specifying the standard deviation of the beta for the seasonal
+component. Defaults to 0.2.
+
+\indent \textbf{Example:}
+
+\begin{lstlisting}[language=Python]
+        Pc.fit(p1 = (7, 2), 
+            p2 = (365.25, 2), 
+            p1_mode = "additive", 
+            p2_mode = "multiplicative", 
+            divisor = 15, 
+            deviation = 0.3)    
+\end{lstlisting}
+
+%%% FUNCTION 3
+
+\hrule
+
+\begin{lstlisting}[language=Python]
+    PyCipio.sample_mod(posterior_draws = 2000, post_pred_draws = 1000, 
+    prior_pred_draws = 1000, random_seed = 42, chains = 2):
+\end{lstlisting}
+
+\indent \textbf{Description:} 
+
+\indent \indent Sample the posterior, the posterior predictive, the prior predictive distribution and generate 
+
+\indent \indent predictions on the test data.
+
+\indent \textbf{Arguments:}
+
+\indent \indent \textit{posterior\_draws (int, optional):} 
+
+\indent \indent \indent Number of draws for the posterior. Defaults to 2000.
+
+\indent \indent \textit{prior\_pred\_draws (int, optional):} 
+
+\indent \indent \indent Number of draws for the prior predictive distribution. Defaults to 1000.
+
+\indent \indent \textit{random\_seed (int, optional):}
+
+\indent \indent \indent Random seed for ensuring reproducibility. Defaults to 42.
+
+\indent \indent \textit{chains (int, optional):} 
+
+\indent \indent \indent Number of chains used for sampling the posterior. Defaults to 2.
+
+\indent \textbf{Example:}
+
+\begin{lstlisting}[language=Python]
+        Pc.sample_mod(posterior_draws = 3000, 
+        post_pred_draws = 1500, 
+        prior_pred_draws = 1500, 
+        random_seed = 13, 
+        chains = 4)
+\end{lstlisting}
+
+%%% FUNCTION 4
+
+\hrule
+
+\begin{lstlisting}[language=Python]
+    PyCipio.plot_fit_idx(idx = None, path = False):
+\end{lstlisting}
+
+\indent \textbf{Description:} 
+
+\indent \indent Plots the posterior predictive distribution overlayed on the training data.
+
+\indent \textbf{Arguments:}
+
+\indent \indent \textit{idx (list, optional):} 
+
+\indent \indent \indent List of strings containing the names of the groups to plot. Defaults to None.
+
+\indent \indent \textit{path (str, optional):}
+
+\indent \indent \indent String specifying the path for saving the plot. 
+
+\indent \indent \indent File-extension is automatically inserted and is hard set to .png. Defaults to False.
+
+\indent \textbf{Example:}
+
+\begin{lstlisting}[language=Python]
+        Pc.plot_fit_idx(idx = ["group1", "group2"], path = "my_path/my_plot")
+\end{lstlisting}
+
+\noindent \textbf{Note:}
+
+\noindent The same functionality exists for plotting the posterior predictive distribution overlayed on the training data. This method called \textit{plot\_prediction\_idx} is identical in inputs and outputs, but only differs on this point. For more details, see the full docstrings on Github. 
+
+%%% FUNCTION 5
+
+\hrule
+
+\begin{lstlisting}[language=Python]
+    PyCipio.plot_residuals(idx = None, path = False):
+\end{lstlisting}
+
+\indent \textbf{Description:} 
+
+\indent \indent Plots the residuals from predictions generated by the model.
+
+\indent \textbf{Arguments:}
+
+\indent \indent \textit{idx (list, optional):}
+
+\indent \indent \indent List of strings containing the names of the groups to plot. Defaults to None.
+
+\indent \indent \textit{path (str, optional):}
+
+\indent \indent \indent String specifying the path for saving the plot. 
+
+\indent \indent \indent File-extension is automatically inserted and is hard set to .png. Defaults to False.
+
+\indent \textbf{Example:}
+
+\begin{lstlisting}[language=Python]
+        Pc.plot_residuals(idx = ["group1", "group2"], path = "my_path/my_plot")
+\end{lstlisting}
 
 \subsection{Workflow}
 

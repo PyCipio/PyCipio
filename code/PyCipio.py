@@ -191,7 +191,9 @@ class PyCipio:
             and the second value is the number of components. First value can be 
             specified as a float, while the second value must be an integer.
             p1_mode (str): String indicating whether the seasonal component should be multiplicative or additive.
+            If anything else than "multiplicative" is specified, the mode defaults to additive.
             p2_mode (str): String indicating whether the seasonal component should be multiplicative or additive.
+            If anything else than "multiplicative" is specified, the mode defaults to additive.
             divisor (int, optional): A scaling parameter for adjusting the standard deviation of the distribution of p. Defaults to 20.
             deviation (float, optional): Parameter specifying the standard deviation of the beta for the seasonal component. Defaults to 0.2.
 
