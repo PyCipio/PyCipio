@@ -22,11 +22,10 @@ import pickle
 ## load data
 d = pd.read_pickle("../data/data_ex1.pkl")
 
-## check data
-sns.lineplot(data = d, x = "t", y = "y", hue = "idx")
-
 ##### create class ######
 sim1 = pc.PyCipio(d, time = "t", values = "y", index = "idx", split = 0.7)
+
+sim1.plot_data(path = "../plots/ex1_plot_data")
 
 sim1.fit(
     p1 = (7, 1), 
