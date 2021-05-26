@@ -12,9 +12,22 @@
 \usepackage{float}
 \usepackage{fancyhdr}
 
+%% CHANGE MARGINS
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+%% make header
+
 \fancypagestyle{plain}{
 \fancyhf{}
-\rhead{Mikkel Werling, 201706722}
+\rhead{Mikkel Werling (201706722) \\
+    Emil Rønn (2017...) \\
+    Victor Møller Poulsen (2017...)}
 \lhead{PyCipio}
 \cfoot{\thepage}
 }
@@ -25,8 +38,10 @@
 \renewcommand{\baselinestretch}{1.5}
 
 \title{PyCipio: Bayesian Time-series Prediction}
-\author{Mikkel Werling\\201706722}
-\date{27/05/2021}
+\author{Mikkel Werling (201706722) \\
+    Emil Rønn (2017...) \\
+    Victor Møller Poulsen (2017...)}
+\date{}
 \begin{document}
 \maketitle
 \section{Introduction}
@@ -46,6 +61,147 @@ $$F(t) = \left[ cos(\frac{2 \pi 1 t}{7}), \dots, sin(\frac{2 \pi 8 t}{7}) \right
 $$s(t) = F(t) \cdot \omega$$
 
 $$y(t) = alpha + beta \cdot x + s_1(t) + s_2(t)$$
+
+\subsection{Bayesian Framework}
+
+\section{Implementation and Architecture}
+
+\subsection{Object Oriented Programming}
+
+\subsection{Primary Functions}
+
+\subsection{Workflow}
+
+\section{Related work and differences}
+
+\subsection{fpp3}
+
+\subsection{Facebook Prophet}
+
+\section{Examples}
+
+\subsection{Example 1}
+
+Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, 
+
+\begin{figure}[ht]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_first_plot_trace.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_second_plot_trace.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_third_plot_trace.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
+Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, 
+
+\begin{figure}[ht]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_first_plot_pp.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_second_plot_pp.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_third_plot_pp.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
+Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, 
+
+\begin{figure}[ht]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_first_plot_fit_idx_all.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_second_plot_fit_idx_all.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_third_plot_fit_idx_all.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
+Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, 
+
+\begin{figure}[H]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_first_plot_predict_idx_all.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_first_residual_plots_all.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex1_first_get_errors.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_second_plot_predict_idx_all.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_second_residual_plots_all.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex1_second_get_errors.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
+Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, 
+
+\begin{figure}[H]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_third_plot_predict_idx_all.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_third_residual_plots_all.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex1_third_get_errors.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
+\subsection{Example 2}
+
+\subsection{Example 3}
+
+\section{Limitations and future work}
+
+\subsection{The Goal of PyCipio}
+
+\subsection{Flexibility}
+
+\subsection{Hierarchical}
+
+\subsection{Prediction on unseen data set}
+
+\subsection{Why min-max scaling is great}
 
 \begin{figure}[ht]
     \centering
