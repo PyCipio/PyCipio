@@ -51,6 +51,51 @@ INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmi
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pythontex\pythontex.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pythontex\pythontex.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fvextra\fvextra.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fvextra\fvextra.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyvrb\fancyvrb.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyvrb\fancyvrb.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\upquote\upquote.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\upquote\upquote.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lineno\lineno.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lineno\lineno.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xstring\xstring.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xstring\xstring.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xstring\xstring.tex
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgfopts\pgfopts.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgfopts\pgfopts.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newfloat\newfloat.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newfloat\newfloat.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\currfile\currfile.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\currfile\currfile.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\generic\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\filehook\filehook.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\filehook\filehook.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\filehook\filehook-2019.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\filehook\filehook-2019.sty
+OUTPUT c:\Users\Mikkel\Documents\PyCipio\report\report.pytxcode
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
 INPUT c:\Users\Mikkel\Documents\PyCipio\report\report.aux
@@ -65,6 +110,8 @@ INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\su
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ztmcm.fd
@@ -95,31 +142,10 @@ INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\pt
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7m.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7m.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7m.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7y.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7y.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7y.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7v.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7v.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7v.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8c.tfm
 OUTPUT c:\Users\Mikkel\Documents\PyCipio\report\report.pdf
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Mikkel\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
@@ -131,6 +157,25 @@ INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr8c.vf
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7m.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7m.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7m.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7y.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7y.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7y.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7v.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7v.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\zptmcm7v.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\zptmcm7m.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\psyro.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri8r.tfm
@@ -149,17 +194,21 @@ INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\zpt
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\symbol\psyr.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
-INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmri7t.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
+INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\sklearn.jpeg
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmri7t.vf

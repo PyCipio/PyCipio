@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99d (MiKTeX 2.9.7350 64-bit)
 Capacity: max_strings=4000, hash_size=5000, hash_prime=4253
 The top-level auxiliary file: report.aux
 The style file: apacite.bst
-I found no \citation commands---while reading file report.aux
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 20000 items.
@@ -14,45 +13,44 @@ Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: ../Referencer.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
-You've used 0 entries,
+You've used 1 entry,
             6951 wiz_defined-function locations,
-            1268 strings with 10651 characters,
-and the built_in function-call counts, 43 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 1
-:= -- 32
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            1275 strings with 10826 characters,
+and the built_in function-call counts, 1649 in all, are:
+= -- 203
+> -- 14
+< -- 57
++ -- 62
+- -- 2
+* -- 97
+:= -- 298
+add.period$ -- 4
+call.type$ -- 1
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 2
+duplicate$ -- 50
+empty$ -- 79
+format.name$ -- 24
+if$ -- 329
 int.to.chr$ -- 0
-int.to.str$ -- 0
+int.to.str$ -- 3
 missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+newline$ -- 28
+num.names$ -- 8
+pop$ -- 41
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 4
 quote$ -- 0
-skip$ -- 1
+skip$ -- 99
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 71
+swap$ -- 32
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 0
+type$ -- 80
 warning$ -- 0
-while$ -- 0
+while$ -- 7
 width$ -- 0
-write$ -- 2
-(There was 1 error message)
+write$ -- 33
