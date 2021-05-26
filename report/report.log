@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.3.23)  26 MAY 2021 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.3.23)  26 MAY 2021 13:51
 entering extended mode
 **c:/Users/Mikkel/Documents/PyCipio/report/report.tex
 (c:/Users/Mikkel/Documents/PyCipio/report/report.tex
@@ -167,24 +167,133 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count185
 \l__pdf_internal_box=\box47
-) (c:/Users\Mikkel\Documents\PyCipio\report\report.aux)
+) (c:/Users\Mikkel\Documents\PyCipio\report\report.aux
+
+LaTeX Warning: Label `fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure1' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure2' multiply defined.
+
+
+LaTeX Warning: Label `fig:supfigure3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:supfigure3' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 45.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -215,75 +324,175 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 46.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 46.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 46.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 31.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 46.
  ("C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
- [1{C:/Users/Mikkel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+Make it at least 34.41992pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
+
+[1{C:/Users/Mikkel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-<../plots/ex1_first_plot_predict_idx_all.png, id=14, 1300.86pt x 1011.78pt>
-File: ../plots/ex1_first_plot_predict_idx_all.png Graphic file (type png)
-<use ../plots/ex1_first_plot_predict_idx_all.png>
-Package pdftex.def Info: ../plots/ex1_first_plot_predict_idx_all.png  used on input line 54.
-(pdftex.def)             Requested size: 103.50105pt x 80.49634pt.
-<../plots/ex1_first_plot_pp.png, id=16, 1300.86pt x 1011.78pt>
+<../plots/ex1_first_plot_trace.png, id=14, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_first_plot_trace.png Graphic file (type png)
+<use ../plots/ex1_first_plot_trace.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_trace.png  used on input line 91.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_second_plot_trace.png, id=16, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_second_plot_trace.png Graphic file (type png)
+<use ../plots/ex1_second_plot_trace.png>
+Package pdftex.def Info: ../plots/ex1_second_plot_trace.png  used on input line 95.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_third_plot_trace.png, id=17, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_third_plot_trace.png Graphic file (type png)
+<use ../plots/ex1_third_plot_trace.png>
+Package pdftex.def Info: ../plots/ex1_third_plot_trace.png  used on input line 98.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+ [2 <../plots/ex1_first_plot_trace.png> <../plots/ex1_second_plot_trace.png> <../plots/ex1_third_plot_trace.png>]
+<../plots/ex1_first_plot_pp.png, id=24, 1300.86pt x 1011.78pt>
 File: ../plots/ex1_first_plot_pp.png Graphic file (type png)
 <use ../plots/ex1_first_plot_pp.png>
-Package pdftex.def Info: ../plots/ex1_first_plot_pp.png  used on input line 58.
-(pdftex.def)             Requested size: 103.50105pt x 80.49634pt.
-<../plots/ex1_first_residual_plots_all.png, id=17, 1300.86pt x 1011.78pt>
+Package pdftex.def Info: ../plots/ex1_first_plot_pp.png  used on input line 109.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_second_plot_pp.png, id=25, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_second_plot_pp.png Graphic file (type png)
+<use ../plots/ex1_second_plot_pp.png>
+Package pdftex.def Info: ../plots/ex1_second_plot_pp.png  used on input line 113.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_third_plot_pp.png, id=26, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_third_plot_pp.png Graphic file (type png)
+<use ../plots/ex1_third_plot_pp.png>
+Package pdftex.def Info: ../plots/ex1_third_plot_pp.png  used on input line 116.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_first_plot_fit_idx_all.png, id=27, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_first_plot_fit_idx_all.png Graphic file (type png)
+<use ../plots/ex1_first_plot_fit_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_fit_idx_all.png  used on input line 127.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_second_plot_fit_idx_all.png, id=28, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_second_plot_fit_idx_all.png Graphic file (type png)
+<use ../plots/ex1_second_plot_fit_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_second_plot_fit_idx_all.png  used on input line 131.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_third_plot_fit_idx_all.png, id=29, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_third_plot_fit_idx_all.png Graphic file (type png)
+<use ../plots/ex1_third_plot_fit_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_third_plot_fit_idx_all.png  used on input line 134.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_first_plot_predict_idx_all.png, id=30, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_first_plot_predict_idx_all.png Graphic file (type png)
+<use ../plots/ex1_first_plot_predict_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_predict_idx_all.png  used on input line 145.
+(pdftex.def)             Requested size: 212.16118pt x 165.00668pt.
+<../plots/ex1_first_residual_plots_all.png, id=31, 1300.86pt x 1011.78pt>
 File: ../plots/ex1_first_residual_plots_all.png Graphic file (type png)
 <use ../plots/ex1_first_residual_plots_all.png>
-Package pdftex.def Info: ../plots/ex1_first_residual_plots_all.png  used on input line 61.
-(pdftex.def)             Requested size: 103.50105pt x 80.49634pt.
-<../plots/ex1_second_plot_predict_idx_single.png, id=18, 1300.86pt x 722.7pt>
+Package pdftex.def Info: ../plots/ex1_first_residual_plots_all.png  used on input line 149.
+(pdftex.def)             Requested size: 212.16118pt x 165.00668pt.
+<../plots/ex1_first_get_errors.png, id=32, 702.625pt x 140.525pt>
+File: ../plots/ex1_first_get_errors.png Graphic file (type png)
+<use ../plots/ex1_first_get_errors.png>
+Package pdftex.def Info: ../plots/ex1_first_get_errors.png  used on input line 152.
+(pdftex.def)             Requested size: 353.60435pt x 70.72333pt.
+<../plots/ex1_second_plot_predict_idx_all.png, id=33, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_second_plot_predict_idx_all.png Graphic file (type png)
+<use ../plots/ex1_second_plot_predict_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_second_plot_predict_idx_all.png  used on input line 160.
+(pdftex.def)             Requested size: 212.16118pt x 165.00668pt.
+<../plots/ex1_second_residual_plots_all.png, id=34, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_second_residual_plots_all.png Graphic file (type png)
+<use ../plots/ex1_second_residual_plots_all.png>
+Package pdftex.def Info: ../plots/ex1_second_residual_plots_all.png  used on input line 164.
+(pdftex.def)             Requested size: 212.16118pt x 165.00668pt.
+<../plots/ex1_second_get_errors.png, id=35, 702.625pt x 140.525pt>
+File: ../plots/ex1_second_get_errors.png Graphic file (type png)
+<use ../plots/ex1_second_get_errors.png>
+Package pdftex.def Info: ../plots/ex1_second_get_errors.png  used on input line 167.
+(pdftex.def)             Requested size: 353.60435pt x 70.72333pt.
+ [3 <../plots/ex1_first_plot_pp.png> <../plots/ex1_second_plot_pp.png> <../plots/ex1_third_plot_pp.png> <../plots/ex1_first_plot_fit_idx_all.png> <../plots/ex1_second_plot_fit_idx_all.png> <../plots/ex1_third_plot_fit_idx_all.png>] [4 <../plots/ex1_first_plot_predict_idx_all.png> <../plots/ex1_first_residual_plots_all.png> <../plots/ex1_first_get_errors.png> <../plots/ex1_second_plot_predict_idx_all.png> <../plots/ex1_second_residual_plots_all.png> <../plots/ex1_second_get_errors.png>]
+<../plots/ex1_third_plot_predict_idx_all.png, id=54, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_third_plot_predict_idx_all.png Graphic file (type png)
+<use ../plots/ex1_third_plot_predict_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_third_plot_predict_idx_all.png  used on input line 178.
+(pdftex.def)             Requested size: 212.16118pt x 165.00668pt.
+<../plots/ex1_third_residual_plots_all.png, id=55, 1300.86pt x 1011.78pt>
+File: ../plots/ex1_third_residual_plots_all.png Graphic file (type png)
+<use ../plots/ex1_third_residual_plots_all.png>
+Package pdftex.def Info: ../plots/ex1_third_residual_plots_all.png  used on input line 182.
+(pdftex.def)             Requested size: 212.16118pt x 165.00668pt.
+<../plots/ex1_third_get_errors.png, id=56, 702.625pt x 140.525pt>
+File: ../plots/ex1_third_get_errors.png Graphic file (type png)
+<use ../plots/ex1_third_get_errors.png>
+Package pdftex.def Info: ../plots/ex1_third_get_errors.png  used on input line 185.
+(pdftex.def)             Requested size: 353.60435pt x 70.72333pt.
+File: ../plots/ex1_first_plot_predict_idx_all.png Graphic file (type png)
+<use ../plots/ex1_first_plot_predict_idx_all.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_predict_idx_all.png  used on input line 210.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+File: ../plots/ex1_first_plot_pp.png Graphic file (type png)
+<use ../plots/ex1_first_plot_pp.png>
+Package pdftex.def Info: ../plots/ex1_first_plot_pp.png  used on input line 214.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+File: ../plots/ex1_first_residual_plots_all.png Graphic file (type png)
+<use ../plots/ex1_first_residual_plots_all.png>
+Package pdftex.def Info: ../plots/ex1_first_residual_plots_all.png  used on input line 217.
+(pdftex.def)             Requested size: 141.44318pt x 109.9993pt.
+<../plots/ex1_second_plot_predict_idx_single.png, id=57, 1300.86pt x 722.7pt>
 File: ../plots/ex1_second_plot_predict_idx_single.png Graphic file (type png)
 <use ../plots/ex1_second_plot_predict_idx_single.png>
-Package pdftex.def Info: ../plots/ex1_second_plot_predict_idx_single.png  used on input line 65.
-(pdftex.def)             Requested size: 155.24895pt x 86.24606pt.
-
+Package pdftex.def Info: ../plots/ex1_second_plot_predict_idx_single.png  used on input line 221.
+(pdftex.def)             Requested size: 212.16118pt x 117.86191pt.
+ [5 <../plots/ex1_third_plot_predict_idx_all.png> <../plots/ex1_third_residual_plots_all.png> <../plots/ex1_third_get_errors.png>]
 
 Package caption Warning: Unused \captionsetup[ContinuedFloat] on input line 9.
 See the caption package documentation for explanation.
 
-[2 <../plots/ex1_first_plot_predict_idx_all.png> <../plots/ex1_first_plot_pp.png> <../plots/ex1_first_residual_plots_all.png> <../plots/ex1_second_plot_predict_idx_single.png>] (c:/Users\Mikkel\Documents\PyCipio\report\report.aux) ) 
+[6 <../plots/ex1_second_plot_predict_idx_single.png>] (c:/Users\Mikkel\Documents\PyCipio\report\report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3869 strings out of 480934
- 61542 string characters out of 2899449
- 307609 words of memory out of 3000000
- 19686 multiletter control sequences out of 15000+200000
+ 3960 strings out of 480934
+ 64996 string characters out of 2899449
+ 309777 words of memory out of 3000000
+ 19762 multiletter control sequences out of 15000+200000
  567025 words of font info for 87 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,45p,298b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,10n,45p,595b,314s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users\Mikkel\Documents\PyCipio\report\report.pdf (2 pages, 577506 bytes).
+Output written on c:/Users\Mikkel\Documents\PyCipio\report\report.pdf (6 pages, 2907123 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

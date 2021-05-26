@@ -134,33 +134,33 @@ sim3.fit(
 sim3.load_idata("../models/m_ex1_7-5a_30-5a_20_0.2")
 
 ## check that everything is good
-sim3.plot_pp(path = "../plots/ex1_second_plot_pp")
-sim3.plot_trace(path = '../plots/ex1_second_plot_trace')
+sim3.plot_pp(path = "../plots/ex1_third_plot_pp")
+sim3.plot_trace(path = '../plots/ex1_third_plot_trace')
 
 ## check fit 
 sim3.plot_fit_idx(
     ["group_one", "group_two"],
-    path = "../plots/ex1_second_plot_fit_idx_all")
+    path = "../plots/ex1_third_plot_fit_idx_all")
 
 sim3.plot_fit_idx(
     ["group_one"],
-    path = "../plots/ex1_second_plot_fit_idx_single")
+    path = "../plots/ex1_third_plot_fit_idx_single")
 
 ## check predictions 
 sim3.plot_predict_idx(
     ["group_one", "group_two"],
-    path = "../plots/ex1_second_plot_predict_idx_all")
+    path = "../plots/ex1_third_plot_predict_idx_all")
 sim3.plot_predict_idx(
     ["group_one"],
-    path = "../plots/ex1_second_plot_predict_idx_single")
+    path = "../plots/ex1_third_plot_predict_idx_single")
 
 ## check residuals
 sim3.plot_residuals(
     ["group_one", "group_two"],
-    path = "../plots/ex1_second_residual_plots_all")
+    path = "../plots/ex1_third_residual_plots_all")
 sim3.plot_residuals(
     ["group_one"],
-    path = "../plots/ex1_second_residual_plots_single")
+    path = "../plots/ex1_third_residual_plots_single")
 
 ## errors
-sim3.get_errors(path = "../plots/ex1_second_get_errors")
+sim3.get_errors(path = "../plots/ex1_third_get_errors")
