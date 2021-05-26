@@ -65,9 +65,19 @@ $$y(t) = alpha + beta \cdot x + s_1(t) + s_2(t)$$
 
 \subsection{Bayesian Framework}
 
+\begin{figure}[H]
+    \centerline{\includegraphics[scale = 0.5]{images/McElreath.png}}
+    \caption{Adapted from McElreath.}
+\end{figure}
+
 \section{Implementation and Architecture}
 
 \subsection{Object Oriented Programming}
+
+\begin{figure}[H]
+    \centerline{\includegraphics{images/sklearn.jpeg}}
+    \caption{Adapted from ... someone. NOTE THIS HAS TO BE WRITTEN AT SOME POINT!!}
+\end{figure}
 
 \subsection{Primary Functions}
 
@@ -293,6 +303,47 @@ component. Defaults to 0.2.
 
 \subsection{Workflow}
 
+\begin{figure}[H]
+    \centerline{\includegraphics[scale = 0.5]{images/Gelman.png}}
+    \caption{Adapted from Gelman}
+\end{figure}
+
+\begin{lstlisting}[language=Python, caption=]
+    #prep data (pandas dataframe containing a time series)
+    d = pd.DataFrame(data)
+    
+    ##### create class ######
+    Pc = pc.PyCipio(d, time = "time_column", 
+                    values = "y_values", 
+                    index = "idx_column", 
+                    split = 0.7)
+    
+    ##### fit model: 
+    Pc.fit(p1 = (7, 1), p2 = (30, 1), p1_mode = "multiplicative", p2_mode = "additive")
+    
+    ##### sample #####
+    Pc.sample_mod()
+    
+    ##### plotting #####
+    Pc.plot_trace()
+    Pc.plot_pp()
+    
+    ### plot training ###
+    Pc.plot_fit_idx(idx = ["group 1", "group 2"])
+    
+    ### plot predict ###
+    Pc.plot_predict_idx(idx = ["group 1", "group 2"])
+    
+    ### get errors ###
+    Pc.get_errors()
+    
+    ### plot residuals ###
+    Pc.plot_residuals(idx = ["group 1", "group 2"])
+    
+    ### save idata ### - This is if you want to save your model for later use
+    Pc.save_idata()
+\end{lstlisting}
+
 \section{Related work and differences}
 
 \subsection{fpp3}
@@ -302,6 +353,12 @@ component. Defaults to 0.2.
 \section{Examples}
 
 \subsection{Example 1}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale = 0.45]{../plots/ex1_plot_data.png}}
+    \caption{Lineplot of the two simulated time-series}
+\end{figure}
+
 
 Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, Obviously here you write something, 
 
@@ -410,7 +467,61 @@ Obviously here you write something, Obviously here you write something, Obviousl
 
 \subsection{Example 2}
 
+\begin{figure}[H]
+    \centerline{\includegraphics[scale = 0.45]{../plots/ex2_plot_data.png}}
+    \caption{Lineplot of the data}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex2_plot_predict_idx_full.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex2_plot_residuals_full.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex2_get_errors_full.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex2_plot_predict_idx_crop.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex2_plot_residuals_crop.png}}
+    \subfigure[Third Plot]{%
+        \label{fig:supfigure3}
+        \includegraphics[width = 0.75 \textwidth]{../plots/ex2_get_errors_crop.png}}
+    \quad
+    \caption{Predictions in one and 2 groups}
+\end{figure}
+
 \subsection{Example 3}
+
+\begin{figure}[H]
+    \centerline{\includegraphics[scale = 0.45]{../plots/ex3_raw_data.png}}
+    \caption{Lineplot of the data}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfigure[First plot]{%
+        \label{fig:supfigure1}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex3_plot_fit_idx.png}}
+    \quad
+    \subfigure[Second plot]{%
+        \label{fig:supfigure2}
+        \includegraphics[width = 0.45 \textwidth]{../plots/ex3_plot_predict_idx.png}}
+    \caption{Predictions in one and 2 groups}
+\end{figure}
 
 \section{Limitations and future work}
 
@@ -422,31 +533,8 @@ Obviously here you write something, Obviously here you write something, Obviousl
 
 \subsection{Prediction on unseen data set}
 
-\subsection{Why min-max scaling is great}
+\bibliographystyle{apacite}
 
-\begin{figure}[ht]
-    \centering
-    \subfigure[First plot]{%
-        \label{fig:supfigure1}
-        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_first_plot_predict_idx_all}}
-    \quad
-    \subfigure[Second plot]{%
-        \label{fig:supfigure2}
-        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_first_plot_pp.png}}
-    \subfigure[Third Plot]{%
-        \label{fig:supfigure3}
-        \includegraphics[width = 0.30 \textwidth]{../plots/ex1_first_residual_plots_all.png}}
-    \quad
-    \subfigure[Fourth plot]{%
-        \label{fig:supfigure4}
-        \includegraphics[width = 0.45 \textwidth]{../plots/ex1_second_plot_predict_idx_single.png}}
-    
-    \caption{Predictions in one and 2 groups}
-\end{figure}
-
-
-%\bibliographystyle{apacite}
-
-%\bibliography{cite2}
+\bibliography{../Referencer}
 
 \end{document}
