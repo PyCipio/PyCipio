@@ -22,45 +22,45 @@ while executing--line 5076 of file apacite.bst
 Warning--you've exceeded 100, the entry-string-size, for entry scikit-learn
 while executing--line 5076 of file apacite.bst
 *Please notify the bibstyle designer*
-You've used 21 entries,
+You've used 20 entries,
             6951 wiz_defined-function locations,
-            1399 strings with 14355 characters,
-and the built_in function-call counts, 37925 in all, are:
-= -- 4630
-> -- 335
-< -- 1718
-+ -- 1754
-- -- 43
-* -- 2397
-:= -- 6759
-add.period$ -- 82
-call.type$ -- 21
-change.case$ -- 379
+            1393 strings with 14192 characters,
+and the built_in function-call counts, 36452 in all, are:
+= -- 4449
+> -- 325
+< -- 1652
++ -- 1698
+- -- 41
+* -- 2314
+:= -- 6493
+add.period$ -- 78
+call.type$ -- 20
+change.case$ -- 360
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 1094
-empty$ -- 1612
-format.name$ -- 584
-if$ -- 7316
+cite$ -- 40
+duplicate$ -- 1061
+empty$ -- 1542
+format.name$ -- 570
+if$ -- 7021
 int.to.chr$ -- 0
-int.to.str$ -- 67
+int.to.str$ -- 64
 missing$ -- 0
-newline$ -- 528
-num.names$ -- 168
-pop$ -- 838
+newline$ -- 506
+num.names$ -- 160
+pop$ -- 770
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 84
 quote$ -- 0
-skip$ -- 2341
+skip$ -- 2268
 stack$ -- 0
-substring$ -- 1910
-swap$ -- 632
-text.length$ -- 48
+substring$ -- 1849
+swap$ -- 617
+text.length$ -- 44
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1680
+type$ -- 1600
 warning$ -- 0
-while$ -- 202
+while$ -- 195
 width$ -- 0
-write$ -- 653
+write$ -- 629
 (There were 3 warnings)

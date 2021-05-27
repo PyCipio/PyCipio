@@ -301,6 +301,7 @@ class PyCipio:
         Args:
             posterior_draws (int, optional): Number of draws for the posterior. Defaults to 2000.
             prior_pred_draws (int, optional): Number of draws for the prior predictive distribution. Defaults to 1000.
+            post_pred_draws (int, optional): Number of draws from the posterior predictive distribution. Defaults to 1000.
             random_seed (int, optional): Random seed for ensuring reproducibility. Defaults to 42.
             chains (int, optional): Number of chains used for sampling the posterior. Defaults to 2.
 

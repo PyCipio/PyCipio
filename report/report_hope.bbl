@@ -320,31 +320,6 @@ Morton, R\BPBI B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Muehlhauser%
-}{%
-Muehlhauser%
-}{%
-{\protect \APACyear {2019}}%
-}]{%
-Luke-Muehlhauser}
-\APACinsertmetastar {%
-Luke-Muehlhauser}%
-\begin{APACrefauthors}%
-Muehlhauser, L.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2019}{Oct}{}.
-\newblock
-\APACrefbtitle {How Feasible Is Long-range Forecasting?} {How feasible is
-  long-range forecasting?}
-\newblock
-\begin{APACrefURL}
-  \url{https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting}
-  \end{APACrefURL}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 O'Hara-Wild%
 , Hyndman%
 \BCBL {}\ \BBA {} Wang%
