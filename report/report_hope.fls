@@ -143,15 +143,12 @@ INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\zpt
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\psyro.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri8r.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\zptmcm7y.vf
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\symbol\psyr.tfm
-INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\Mikkel\AppData\Local\MiKTeX\2.9\fonts\tfm\public\rsfs\rsfs10.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\zptmcm7v.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\symbol\psyr.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\zptmcm7t.vf
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\symbol\psyr.tfm
+INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
 INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
 INPUT c:\Users\Mikkel\Documents\PyCipio\report\images\McElreath.png
@@ -235,23 +232,23 @@ INPUT ..\plots\ex1_third_plot_fit_idx_all.png
 INPUT ..\plots\ex1_third_plot_fit_idx_all.png
 INPUT ..\plots\ex1_third_plot_fit_idx_all.png
 INPUT ..\plots\ex1_third_plot_fit_idx_all.png
-INPUT ..\plots\ex1_first_plot_predict_idx_all.png
-INPUT ..\plots\ex1_first_plot_predict_idx_all.png
-INPUT ..\plots\ex1_first_plot_predict_idx_all.png
-INPUT ..\plots\ex1_first_plot_predict_idx_all.png
-INPUT ..\plots\ex1_first_plot_predict_idx_all.png
-INPUT ..\plots\ex1_first_residual_plots_all.png
-INPUT ..\plots\ex1_first_residual_plots_all.png
-INPUT ..\plots\ex1_first_residual_plots_all.png
-INPUT ..\plots\ex1_first_residual_plots_all.png
-INPUT ..\plots\ex1_first_residual_plots_all.png
-INPUT ..\plots\ex1_first_get_errors.png
-INPUT ..\plots\ex1_first_get_errors.png
-INPUT ..\plots\ex1_first_get_errors.png
-INPUT ..\plots\ex1_first_get_errors.png
-INPUT ..\plots\ex1_first_get_errors.png
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Mikkel\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT ..\plots\ex1_first_plot_predict_idx_all.png
+INPUT ..\plots\ex1_first_plot_predict_idx_all.png
+INPUT ..\plots\ex1_first_plot_predict_idx_all.png
+INPUT ..\plots\ex1_first_plot_predict_idx_all.png
+INPUT ..\plots\ex1_first_plot_predict_idx_all.png
+INPUT ..\plots\ex1_first_residual_plots_all.png
+INPUT ..\plots\ex1_first_residual_plots_all.png
+INPUT ..\plots\ex1_first_residual_plots_all.png
+INPUT ..\plots\ex1_first_residual_plots_all.png
+INPUT ..\plots\ex1_first_residual_plots_all.png
+INPUT ..\plots\ex1_first_get_errors.png
+INPUT ..\plots\ex1_first_get_errors.png
+INPUT ..\plots\ex1_first_get_errors.png
+INPUT ..\plots\ex1_first_get_errors.png
+INPUT ..\plots\ex1_first_get_errors.png
 INPUT ..\plots\ex1_second_plot_predict_idx_all.png
 INPUT ..\plots\ex1_second_plot_predict_idx_all.png
 INPUT ..\plots\ex1_second_plot_predict_idx_all.png

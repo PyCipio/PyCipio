@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Abstract}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Time-series Forecasting \(ER\)}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Decomposition of a Signal \(MW\)}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Bayesian Framework \(VMP\)}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Implementation and Architecture}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Object Oriented Programming \(ER\)}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Primary Functions \(MW\)}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Bayesian Modelling Workflow \(VMP\)}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Examples \(ER\)}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Example of pipeline \(MW\)}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Example 1: Simulated data \(VMP\)}{section.4}% 12

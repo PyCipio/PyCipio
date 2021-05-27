@@ -20,9 +20,7 @@ Brownlee, J.%
 \APACrefbtitle {Train-Test Split for Evaluating Machine Learning Algorithms.}
   {Train-test split for evaluating machine learning algorithms.}
 \newblock
-\begin{APACrefURL}
-  \url{https://machinelearningmastery.com/train-test-split-for-evaluating-machine-learning-algorithms/}
-  \end{APACrefURL}
+\begin{APACrefURL} \url{shorturl.at/gmvCD} \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -460,9 +458,7 @@ Serafeim, L.%
 \newblock
 \APACjournalVolNumPages{Towards Data Science}{}{}{}.
 \newblock
-\begin{APACrefURL}
-  \url{https://towardsdatascience.com/everything-you-need-to-know-about-min-max-normalization-in-python-b79592732b79}
-  \end{APACrefURL}
+\begin{APACrefURL} \url{shorturl.at/wJMQW} \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
