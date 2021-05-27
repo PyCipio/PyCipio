@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (MiKTeX 2.9.7350 64-bit)
+Capacity: max_strings=4000, hash_size=5000, hash_prime=4253
+The top-level auxiliary file: report_hope.aux
+The style file: apacite.bst
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 20000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: ../Referencer_new.bib
+Warning--I didn't find a database entry for "Rossum"
+Warning--I didn't find a database entry for "Hao"
+Warning--I didn't find a database entry for "Fonnesbeck"
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--you've exceeded 100, the entry-string-size, for entry gelman2020bayesian
+while executing--line 5076 of file apacite.bst
+*Please notify the bibstyle designer*
+Warning--you've exceeded 100, the entry-string-size, for entry dengue
+while executing--line 5076 of file apacite.bst
+*Please notify the bibstyle designer*
+Warning--you've exceeded 100, the entry-string-size, for entry scikit-learn
+while executing--line 5076 of file apacite.bst
+*Please notify the bibstyle designer*
+You've used 18 entries,
+            6951 wiz_defined-function locations,
+            1385 strings with 13940 characters,
+and the built_in function-call counts, 32507 in all, are:
+= -- 3955
+> -- 288
+< -- 1471
++ -- 1501
+- -- 37
+* -- 2059
+:= -- 5791
+add.period$ -- 70
+call.type$ -- 18
+change.case$ -- 328
+chr.to.int$ -- 0
+cite$ -- 36
+duplicate$ -- 940
+empty$ -- 1390
+format.name$ -- 504
+if$ -- 6262
+int.to.chr$ -- 0
+int.to.str$ -- 58
+missing$ -- 0
+newline$ -- 452
+num.names$ -- 144
+pop$ -- 740
+preamble$ -- 1
+purify$ -- 78
+quote$ -- 0
+skip$ -- 1992
+stack$ -- 0
+substring$ -- 1631
+swap$ -- 546
+text.length$ -- 42
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 1440
+warning$ -- 0
+while$ -- 176
+width$ -- 0
+write$ -- 556
+(There were 6 warnings)
