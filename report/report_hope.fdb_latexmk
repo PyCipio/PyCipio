@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex report_hope"] 1622108290 "report_hope.aux" "report_hope.bbl" "report_hope" 1622108298
-  "../Referencer_new.bib" 1622106724 6335 826ae5ffee216fcc31b9c53b52f105b7 ""
+["bibtex report_hope"] 1622108487 "report_hope.aux" "report_hope.bbl" "report_hope" 1622108495
+  "../Referencer_new.bib" 1622108471 6335 826ae5ffee216fcc31b9c53b52f105b7 ""
   "C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "report_hope.aux" 1622108298 16043 c138bcc623b0cc87312d14069318b9b7 "pdflatex"
+  "report_hope.aux" 1622108494 16696 002959506be35935065df61e55997fff "pdflatex"
   (generated)
   "report_hope.bbl"
   "report_hope.blg"
-["pdflatex"] 1622108291 "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.tex" "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.pdf" "report_hope" 1622108298
+["pdflatex"] 1622108487 "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.tex" "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.pdf" "report_hope" 1622108495
   "../plots/ex1_first_get_errors.png" 1621965497 12323 193cfe811398609025f668ae704d3d52 ""
   "../plots/ex1_first_plot_fit_idx_all.png" 1621965497 136875 d7b80acaa5211e914074db87398c5d28 ""
   "../plots/ex1_first_plot_pp.png" 1621965497 287485 43a31da7d250e93137ee980c769b1314 ""
@@ -112,17 +112,17 @@
   "C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ts1ptm.fd" 1585257378 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/tex/latex/subfigure/subfigure.cfg" 1114282570 2114 42ba738bf6f1cec796106a69840777a4 ""
   "C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/tex/latex/subfigure/subfigure.sty" 1114282570 14815 1d3da78e0f66f3c62133fbabffd13cf5 ""
-  "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.aux" 1622108298 16043 c138bcc623b0cc87312d14069318b9b7 ""
-  "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.tex" 1622108281 60302 a4c0c124201bc1ad848e34a94c42d7c1 ""
+  "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.aux" 1622108494 16696 002959506be35935065df61e55997fff ""
+  "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.tex" 1622108471 60305 9fcb17eff7e37e8948c956eb5ccacaab ""
   "images/Gelman.png" 1622030020 66905 7b063a2163cfd0660fe1c24bdd8c56ac ""
   "images/McElreath.png" 1622030020 43328 da806240bc28dc09347f9c0c042ffd6f ""
   "images/sklearn.jpeg" 1622066577 174896 9c962a1d497522cfa2b23b98c6014709 ""
-  "report_hope.aux" 1622108298 16043 c138bcc623b0cc87312d14069318b9b7 "pdflatex"
-  "report_hope.bbl" 1622108291 11730 514bcfb1b5b4e3692da54a4593db7169 "bibtex report_hope"
-  "report_hope.tex" 1622108281 60302 a4c0c124201bc1ad848e34a94c42d7c1 ""
+  "report_hope.aux" 1622108494 16696 002959506be35935065df61e55997fff "pdflatex"
+  "report_hope.bbl" 1622108487 13582 8a96e515fcef096f051df23a157f11b9 "bibtex report_hope"
+  "report_hope.tex" 1622108471 60305 9fcb17eff7e37e8948c956eb5ccacaab ""
   (generated)
-  "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.pdf"
-  "report_hope.log"
+  "report_hope.aux"
   "report_hope.pdf"
   "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.log"
-  "report_hope.aux"
+  "c:/Users/Mikkel/Documents/PyCipio/report/report_hope.pdf"
+  "report_hope.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.3.23)  27 MAY 2021 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7350 64-bit) (preloaded format=pdflatex 2020.3.23)  27 MAY 2021 11:41
 entering extended mode
 **c:/Users/Mikkel/Documents/PyCipio/report/report_hope.tex
 (c:/Users/Mikkel/Documents/PyCipio/report/report_hope.tex
@@ -431,20 +431,13 @@ File: images/McElreath.png Graphic file (type png)
 <use images/McElreath.png>
 Package pdftex.def Info: images/McElreath.png  used on input line 134.
 (pdftex.def)             Requested size: 422.07584pt x 261.9781pt.
- [5]
-
-LaTeX Warning: Citation `Rossum' undefined on input line 146.
-
-[6 <c:/Users/Mikkel/Documents/PyCipio/report/images/McElreath.png>]
-
-LaTeX Warning: Citation `Hao' undefined on input line 148.
-
+ [5] [6 <c:/Users/Mikkel/Documents/PyCipio/report/images/McElreath.png>]
 <images/sklearn.jpeg, id=30, 310.761pt x 68.4156pt>
 File: images/sklearn.jpeg Graphic file (type jpg)
 <use images/sklearn.jpeg>
 Package pdftex.def Info: images/sklearn.jpeg  used on input line 151.
 (pdftex.def)             Requested size: 310.76024pt x 68.41542pt.
-[7 <c:/Users/Mikkel/Documents/PyCipio/report/images/sklearn.jpeg>] [8] [9] [10]
+ [7 <c:/Users/Mikkel/Documents/PyCipio/report/images/sklearn.jpeg>] [8] [9] [10]
 Overfull \hbox (2.53233pt too wide) in paragraph at lines 380--381
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -609,11 +602,7 @@ File: ../plots/ex3_plot_predict_idx.png Graphic file (type png)
 <use ../plots/ex3_plot_predict_idx.png>
 Package pdftex.def Info: ../plots/ex3_plot_predict_idx.png  used on input line 658.
 (pdftex.def)             Requested size: 212.16118pt x 330.01337pt.
- [26 <../plots/ex3_plot_fit_idx.png> <../plots/ex3_plot_predict_idx.png>] [27] [28]
-
-LaTeX Warning: Citation `Fonnesbeck' undefined on input line 705.
-
-[29] (c:/Users\Mikkel\Documents\PyCipio\report\report_hope.bbl
+ [26 <../plots/ex3_plot_fit_idx.png> <../plots/ex3_plot_predict_idx.png>] [27] [28] [29] (c:/Users\Mikkel\Documents\PyCipio\report\report_hope.bbl
 Overfull \hbox (52.2732pt too wide) in paragraph at lines 14--27
 \OT1/cmtt/m/n/10 https://machinelearningmastery.com/train-test-split-for-evaluating-machine-learning-algorithms/
  []
@@ -624,27 +613,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--27
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--318
+Underfull \hbox (badness 10000) in paragraph at lines 333--346
 []\OT1/ptm/m/n/10 Muehlhauser, L.  (2019, Oct).  \OT1/ptm/m/it/10 How fea-si-ble is long-range fore-cast-ing?  \OT1/ptm/m/n/10 Re-trieved from
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 422--437
+Underfull \hbox (badness 10000) in paragraph at lines 477--492
 []\OT1/ptm/m/n/10 Serafeim, L.  (2020, May).  Ev-ery-thing you need to know about
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--437
+Underfull \hbox (badness 10000) in paragraph at lines 477--492
 \OT1/ptm/m/n/10 min-max nor-mal-iza-tion.  \OT1/ptm/m/it/10 To-wards Data Sci-ence\OT1/ptm/m/n/10 .  Re-trieved from
  []
 
 
-Overfull \hbox (125.77255pt too wide) in paragraph at lines 422--437
+Overfull \hbox (125.77255pt too wide) in paragraph at lines 477--492
 \OT1/cmtt/m/n/10 https://towardsdatascience.com/everything-you-need-to-know-about-min-max-normalization-in-python-b79592732b79
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--437
+Underfull \hbox (badness 10000) in paragraph at lines 477--492
 
  []
 
@@ -655,22 +644,19 @@ See the caption package documentation for explanation.
 
 [31] (c:/Users\Mikkel\Documents\PyCipio\report\report_hope.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5920 strings out of 480934
- 91980 string characters out of 2899449
+ 5923 strings out of 480934
+ 92023 string characters out of 2899449
  531575 words of memory out of 3000000
- 21680 multiletter control sequences out of 15000+200000
+ 21683 multiletter control sequences out of 15000+200000
  569036 words of font info for 92 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,11n,45p,1361b,1697s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Mikkel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users\Mikkel\Documents\PyCipio\report\report_hope.pdf (31 pages, 4366465 bytes).
+Output written on c:/Users\Mikkel\Documents\PyCipio\report\report_hope.pdf (31 pages, 4366968 bytes).
 PDF statistics:
  205 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -187,6 +187,34 @@ Guidotti, E.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Hao%
+\ \BBA {} Ho%
+}{%
+Hao%
+\ \BBA {} Ho%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+Hao_ho}
+\APACinsertmetastar {%
+Hao_ho}%
+\begin{APACrefauthors}%
+Hao, J.%
+\BCBT {}\ \BBA {} Ho, T\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Machine learning made easy: A review of scikit-learn
+  package in Python programming language} {Machine learning made easy: A review
+  of scikit-learn package in python programming language}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Educational and Behavioral
+  Statistics}{44}{3}{348-361}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Hyndman%
 \ \BBA {} Athanasopoulos%
 }{%
@@ -409,6 +437,33 @@ Pedregosa, F.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Salvatier%
+, Wiecki%
+\BCBL {}\ \BBA {} Fonnesbeck%
+}{%
+Salvatier%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+pymc3}
+\APACinsertmetastar {%
+pymc3}%
+\begin{APACrefauthors}%
+Salvatier, J.%
+, Wiecki, T\BPBI V.%
+\BCBL {}\ \BBA {} Fonnesbeck, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Probabilistic programming in Python using PyMC3}
+  {Probabilistic programming in python using pymc3}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PeerJ Computer Science}{2}{}{e55}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Serafeim%
 }{%
 Serafeim%
@@ -481,6 +536,31 @@ Taylor, S\BPBI J.%
 {\BBOQ}\APACrefatitle {Forecasting at scale} {Forecasting at scale}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{The American Statistician}{72}{1}{37--45}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Van~Rossum%
+\ \BBA {} Drake%
+}{%
+Van~Rossum%
+\ \BBA {} Drake%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+Python_main}
+\APACinsertmetastar {%
+Python_main}%
+\begin{APACrefauthors}%
+Van~Rossum, G.%
+\BCBT {}\ \BBA {} Drake, F\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2009}.
+\newblock
+\APACrefbtitle {Python 3 Reference Manual} {Python 3 reference manual}.
+\newblock
+\APACaddressPublisher{Scotts Valley, CA}{CreateSpace}.
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}
