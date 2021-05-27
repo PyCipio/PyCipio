@@ -17,7 +17,7 @@ We use three files for each (all in the /code folder).
 2. run models and check diagnostic. Save idata in /models folder.
 3. load idata into class and showcase and save plots in the /plots folder.
 
-At present there is no full pipelines in individual files.
+At present there is no full pipelines in individual files for the examples.
 An example pipeline can be found at "/code/example\_code.ipynb".
 
 # Report
