@@ -1,0 +1,486 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Brownlee%
+}{%
+Brownlee%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+Brownlee}
+\APACinsertmetastar {%
+Brownlee}%
+\begin{APACrefauthors}%
+Brownlee, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{Aug}{}.
+\newblock
+\APACrefbtitle {Train-Test Split for Evaluating Machine Learning Algorithms.}
+  {Train-test split for evaluating machine learning algorithms.}
+\newblock
+\begin{APACrefURL}
+  \url{https://machinelearningmastery.com/train-test-split-for-evaluating-machine-learning-algorithms/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chatfield%
+}{%
+Chatfield%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+Chatfield}
+\APACinsertmetastar {%
+Chatfield}%
+\begin{APACrefauthors}%
+Chatfield, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2000}.
+\newblock
+\APACrefbtitle {Time-series forecasting} {Time-series forecasting}.
+\newblock
+\APACaddressPublisher{}{CRC press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dahlgaard%
+, Hansen%
+, Hansen%
+\BCBL {}\ \BBA {} Larsen%
+}{%
+Dahlgaard%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+exit-polls1}
+\APACinsertmetastar {%
+exit-polls1}%
+\begin{APACrefauthors}%
+Dahlgaard, J\BPBI O.%
+, Hansen, J\BPBI H.%
+, Hansen, K\BPBI M.%
+\BCBL {}\ \BBA {} Larsen, M\BPBI V.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {How are voters influenced by opinion polls? The effect
+  of polls on voting behavior and party sympathy} {How are voters influenced by
+  opinion polls? the effect of polls on voting behavior and party
+  sympathy}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{World Political Science}{12}{2}{283-300}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gelman%
+\ \protect \BOthers {.}}{%
+Gelman%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+gelman2020bayesian}
+\APACinsertmetastar {%
+gelman2020bayesian}%
+\begin{APACrefauthors}%
+Gelman, A.%
+, Vehtari, A.%
+, Simpson, D.%
+, Margossian, C\BPBI C.%
+, Carpenter, B.%
+, Yao, Y.%
+\BDBL {}Modr{\'a}k, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Bayesian workflow} {Bayesian workflow}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint arXiv 2011 01808}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gharbi%
+\ \protect \BOthers {.}}{%
+Gharbi%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+dengue}
+\APACinsertmetastar {%
+dengue}%
+\begin{APACrefauthors}%
+Gharbi, M.%
+, Quenel, P.%
+, Gustave, J.%
+, Cassadou, S.%
+, Ruche, G\BPBI L.%
+, Girdary, L.%
+\BCBL {}\ \BBA {} Marrama, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Time series analysis of dengue incidence in Guadeloupe,
+  French West Indies: forecasting models using climate variables as predictors}
+  {Time series analysis of dengue incidence in guadeloupe, french west indies:
+  forecasting models using climate variables as predictors}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{BMC infectious diseases}{11}{1}{1-13}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gilchrist%
+}{%
+Gilchrist%
+}{%
+{\protect \APACyear {1967}}%
+}]{%
+gilchrist1967methods}
+\APACinsertmetastar {%
+gilchrist1967methods}%
+\begin{APACrefauthors}%
+Gilchrist, W\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1967}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Methods of estimation involving discounting} {Methods of
+  estimation involving discounting}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the Royal Statistical Society: Series B
+  (Methodological)}{29}{2}{355--369}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Guidotti%
+\ \BBA {} Ardia%
+}{%
+Guidotti%
+\ \BBA {} Ardia%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+COVID-19-data-hub}
+\APACinsertmetastar {%
+COVID-19-data-hub}%
+\begin{APACrefauthors}%
+Guidotti, E.%
+\BCBT {}\ \BBA {} Ardia, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {COVID-19 data hub} {Covid-19 data hub}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Open Source Software}{5}{51}{2376}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hyndman%
+\ \BBA {} Athanasopoulos%
+}{%
+Hyndman%
+\ \BBA {} Athanasopoulos%
+}{%
+{\protect \APACyear {2021}}%
+}]{%
+fpp3}
+\APACinsertmetastar {%
+fpp3}%
+\begin{APACrefauthors}%
+Hyndman, R\BPBI J.%
+\BCBT {}\ \BBA {} Athanasopoulos, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2021}.
+\newblock
+\APACrefbtitle {Forecasting: Principles and Practice} {Forecasting: Principles
+  and practice}\ (\PrintOrdinal{3}\ \BEd).
+\newblock
+\APACaddressPublisher{Melbourne, Australia}{OTexts}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Martin%
+}{%
+Martin%
+}{%
+{\protect \APACyear {2018}}%
+}]{%
+martin2018bayesian}
+\APACinsertmetastar {%
+martin2018bayesian}%
+\begin{APACrefauthors}%
+Martin, O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2018}.
+\newblock
+\APACrefbtitle {Bayesian analysis with Python: introduction to statistical
+  modeling and probabilistic programming using PyMC3 and ArviZ} {Bayesian
+  analysis with python: introduction to statistical modeling and probabilistic
+  programming using pymc3 and arviz}.
+\newblock
+\APACaddressPublisher{}{Packt Publishing Ltd}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McElreath%
+}{%
+McElreath%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+McElreath}
+\APACinsertmetastar {%
+McElreath}%
+\begin{APACrefauthors}%
+McElreath, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2020}.
+\newblock
+\APACrefbtitle {Statistical rethinking: A bayesian course with examples in R
+  and STAN} {Statistical rethinking: A bayesian course with examples in r and
+  stan}\ (\PrintOrdinal{2}\ \BEd).
+\newblock
+\APACaddressPublisher{}{CRC Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Morton%
+, Muller%
+, Page%
+\BCBL {}\ \BBA {} Torgler%
+}{%
+Morton%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+exit-polls2}
+\APACinsertmetastar {%
+exit-polls2}%
+\begin{APACrefauthors}%
+Morton, R\BPBI B.%
+, Muller, D.%
+, Page, L.%
+\BCBL {}\ \BBA {} Torgler, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Exit polls, turnout, and bandwagon voting: Evidence from
+  a natural experiment} {Exit polls, turnout, and bandwagon voting: Evidence
+  from a natural experiment}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{European Economic Review}{77}{}{65-81}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Muehlhauser%
+}{%
+Muehlhauser%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+Luke-Muehlhauser}
+\APACinsertmetastar {%
+Luke-Muehlhauser}%
+\begin{APACrefauthors}%
+Muehlhauser, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{Oct}{}.
+\newblock
+\APACrefbtitle {How Feasible Is Long-range Forecasting?} {How feasible is
+  long-range forecasting?}
+\newblock
+\begin{APACrefURL}
+  \url{https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+O'Hara-Wild%
+, Hyndman%
+\BCBL {}\ \BBA {} Wang%
+}{%
+O'Hara-Wild%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+fable_package}
+\APACinsertmetastar {%
+fable_package}%
+\begin{APACrefauthors}%
+O'Hara-Wild, M.%
+, Hyndman, R.%
+\BCBL {}\ \BBA {} Wang, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021{\protect \BCnt {1}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {fable: Forecasting Models for Tidy Time Series} {fable:
+  Forecasting models for tidy time series}{\BBCQ}\
+  [\bibcomputersoftwaremanual].
+\newblock
+\begin{APACrefURL} \url{https://CRAN.R-project.org/package=fable}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{R package version 0.3.0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+O'Hara-Wild%
+, Hyndman%
+\BCBL {}\ \BBA {} Wang%
+}{%
+O'Hara-Wild%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+feasts_package}
+\APACinsertmetastar {%
+feasts_package}%
+\begin{APACrefauthors}%
+O'Hara-Wild, M.%
+, Hyndman, R.%
+\BCBL {}\ \BBA {} Wang, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021{\protect \BCnt {2}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {feasts: Feature Extraction and Statistics for Time
+  Series} {feasts: Feature extraction and statistics for time series}{\BBCQ}\
+  [\bibcomputersoftwaremanual].
+\newblock
+\begin{APACrefURL} \url{https://CRAN.R-project.org/package=feasts}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{R package version 0.1.7}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pedregosa%
+\ \protect \BOthers {.}}{%
+Pedregosa%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+scikit-learn}
+\APACinsertmetastar {%
+scikit-learn}%
+\begin{APACrefauthors}%
+Pedregosa, F.%
+, Varoquaux, G.%
+, Gramfort, A.%
+, Michel, V.%
+, Thirion, B.%
+, Grisel, O.%
+\BDBL {}Duchesnay, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Scikit-learn: Machine Learning in {P}ython}
+  {Scikit-learn: Machine learning in {P}ython}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Machine Learning
+  Research}{12}{}{2825--2830}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Serafeim%
+}{%
+Serafeim%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+Min-Max}
+\APACinsertmetastar {%
+Min-Max}%
+\begin{APACrefauthors}%
+Serafeim, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{May}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Everything you need to know about Min-Max normalization}
+  {Everything you need to know about min-max normalization}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Towards Data Science}{}{}{}.
+\newblock
+\begin{APACrefURL}
+  \url{https://towardsdatascience.com/everything-you-need-to-know-about-min-max-normalization-in-python-b79592732b79}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sudman%
+}{%
+Sudman%
+}{%
+{\protect \APACyear {1986}}%
+}]{%
+exit-polls3}
+\APACinsertmetastar {%
+exit-polls3}%
+\begin{APACrefauthors}%
+Sudman, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1986}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Do exit polls influence voting behavior?} {Do exit polls
+  influence voting behavior?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Public opinion quarterly}{50}{3}{331-339}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Taylor%
+\ \BBA {} Letham%
+}{%
+Taylor%
+\ \BBA {} Letham%
+}{%
+{\protect \APACyear {2018}}%
+}]{%
+taylor2018forecasting}
+\APACinsertmetastar {%
+taylor2018forecasting}%
+\begin{APACrefauthors}%
+Taylor, S\BPBI J.%
+\BCBT {}\ \BBA {} Letham, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Forecasting at scale} {Forecasting at scale}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The American Statistician}{72}{1}{37--45}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
